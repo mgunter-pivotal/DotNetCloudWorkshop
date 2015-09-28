@@ -52,9 +52,9 @@ image::../../Common/images/SpringCloudConsole.png[]
 +
 image::../../Common/images/ConfigServerUp.png[]
 +
-. Later you will set up your own configuration repository in Github.  For now, enter "https://github.com/whewatt-pivotal/springbox-config-repo".
+. Later you will set up your own configuration repository in Github.  For now, enter "https://github.com/mstine/config-repo".
 +
-image::../../Common/images/ConfigServerEntries.png[]
+image::../../Common/images/ConfigServerStine.png[]
 +
 . Go back to the Application Manager console and click "Manage" under "service-registry".  When the service has initialized you should a screen similar to the following:
 +
