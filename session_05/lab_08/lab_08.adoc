@@ -36,7 +36,7 @@ Creating service instance service-registry in org whewatt_org / space testing as
 OK
 ----
 
-. The final service that we need is for the circuit breaker.
+. The final service that we need is for the circuit breaker dashboard.
 +
 ----
 $cf create-service p-circuit-breaker-dashboard standard circuit-breaker
@@ -51,6 +51,10 @@ image::../../Common/images/SpringCloudConsole.png[]
 . You should see a blank page for the Config Server.
 +
 image::../../Common/images/ConfigServerUp.png[]
++
+. Later you will set up your own configuration repository in Github.  For now, enter "https://github.com/whewatt-pivotal/springbox-config-repo".
++
+image::../../Common/images/ConfigServerEntries.png[]
 +
 . Go back to the Application Manager console and click "Manage" under "service-registry".  When the service has initialized you should a screen similar to the following:
 +
