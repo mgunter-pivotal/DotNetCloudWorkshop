@@ -293,7 +293,7 @@ image::../../Common/images/cf-scale-boot-healed.png[]
 
 == Clean Up
 
-Because of the limited PWS quota we have for this course, let's clean up our application and services to make room for future labs.
+Because of the limited quota we have for this course, let's clean up our application and services to make room for future labs.
 
 . Delete the `cf-scale-boot` application:
 +

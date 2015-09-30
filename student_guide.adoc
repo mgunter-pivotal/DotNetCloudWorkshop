@@ -24,7 +24,7 @@ The lectures for this class are intentionally very light and are only intended t
 The overwhelming majority of our time will be spent engaging with the technology directly!
 
 
-Start by downloading the course materials.  This can be accomplished as follows:
+Start by downloading the course materials.  This can be accomplished by downloading the zip file at https://github.com/whewatt-pivotal/SpringCloudWorkshop/archive/master.zip, or if you have Git installed, use the following commands:
 
 ----
 $ git clone https://github.com/whewatt-pivotal/SpringCloudWorkshop
