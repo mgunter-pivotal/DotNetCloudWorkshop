@@ -8,10 +8,6 @@ Bjorn Boe +
 Senior Field Engineer - Pivotal +
 bboe@pivotal.io
 
-Wes Hewatt +
-Senior Field Engineer - Pivotal +
-whewatt@pivotal.io
-
 Michael Wright +
 Field Engineering Manager - Pivotal +
 mwright@pivotal.io
