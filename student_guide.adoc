@@ -8,9 +8,9 @@ Bjorn Boe +
 Senior Field Engineer - Pivotal +
 bboe@pivotal.io
 
-Michael Wright +
-Field Engineering Manager - Pivotal +
-mwright@pivotal.io
+Ming Ling +
+Senior Field Engineer - Pivotal +
+mling@pivotal.io
 
 == Schedule
 
@@ -20,10 +20,10 @@ The lectures for this class are intentionally very light and are only intended t
 The overwhelming majority of our time will be spent engaging with the technology directly!
 
 
-Start by downloading the course materials.  This can be accomplished by downloading the zip file at https://github.com/whewatt-pivotal/SpringCloudWorkshop/archive/master.zip, or if you have Git installed, use the following commands:
+Start by downloading the course materials.  This can be accomplished either through the GitHub website or if you have Git installed, use the following commands:
 
 ----
-$ git clone https://github.com/whewatt-pivotal/SpringCloudWorkshop
+$ git clone https://github.com/bboe-pivotal/SpringCloudWorkshop
 $ cd SpringCloudWorkshop/
 $ git fetch --all
 ----
