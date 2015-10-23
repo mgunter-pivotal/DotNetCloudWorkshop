@@ -4,12 +4,12 @@
 
 . If you haven't already, download the latest release of the Cloud Foundry CLI from https://github.com/cloudfoundry/cli/releases for your operating system and install it.
 
-. Go to the https://docs.google.com/spreadsheets/d/10vdCu2Q2-bg4hCkSKAvVUlvvPhd_XfvFz7OtH-xUyc0/edit?usp=sharing[user info spreadsheet] and assign yourself a Pivotal Cloud Foundry user for the workshop.
+. Go to the https://docs.google.com/spreadsheets/d/1WDr2GYVq9JsdZK35o0kqQAvp4KsPn6RIRwJqKuKfF0o/edit?usp=sharing[user info spreadsheet] and assign yourself a Pivotal Cloud Foundry user for the workshop.
 
 . Set the API target for the CLI:
 +
 ----
-$ cf api api.cf.vca08.pivotal.io --skip-ssl-validation
+$ cf api --skip-ssl-validation https://api.south.fe.pivotal.io
 ----
 
 . Login to Pivotal Cloud Foundry:
