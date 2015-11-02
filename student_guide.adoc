@@ -8,10 +8,6 @@ Bjorn Boe +
 Senior Field Engineer - Pivotal +
 bboe@pivotal.io
 
-Ming Ling +
-Senior Field Engineer - Pivotal +
-mling@pivotal.io
-
 == Schedule
 
 This is a _loose_ schedule for the day. We will adjust as necessary based on our pace through the material.
