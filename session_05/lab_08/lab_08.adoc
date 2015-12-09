@@ -7,24 +7,13 @@
 --
 
 
-== Creating Service Instances
+== Creating Service Instances for Hello World Spring Cloud Services Demo Application
 
-. The Fortune service stores the fortunes in a database. 
-From the CLI, let's _create_ a free MySQL service instance:
-+
-----
-
-$cf create-service p-mysql 100mb-dev fortune-db
-Creating service instance fortune-db in org whewatt_org / space testing as whewatt@pivotal.io...
-OK
-
-----
-
-. Next we'll create an instance of the config service.
+. Create the services the demo application depends on, first start with an instance of the config service.
 +
 ----
 $cf create-service p-config-server standard config-server
-Creating service instance config-server in org whewatt_org / space testing as whewatt@pivotal.io...
+Creating service instance config-server in org student20-org / space development as student20...
 OK
 ----
 
@@ -32,7 +21,7 @@ OK
 +
 ----
 $cf create-service p-service-registry standard service-registry
-Creating service instance service-registry in org whewatt_org / space testing as whewatt@pivotal.io...
+Creating service instance service-registry in org student20-org / space development as student20...
 OK
 ----
 
@@ -40,178 +29,299 @@ OK
 +
 ----
 $cf create-service p-circuit-breaker-dashboard standard circuit-breaker
-Creating service instance circuit-breaker in org whewatt_org / space testing as whewatt@pivotal.io...
+Creating service instance circuit-breaker in org student20-org / space development as student20...
 OK
 ----
 +
-. We need to initialize each of the Spring Cloud Services.  Open the Application Manager console and scroll down until you see the Spring Cloud services.  Under the "config-server", click "Manage".
+. First we need to configure the config server. Open the Application Manager console and scroll down until you see the Spring Cloud services.  Under the "config-server", click "Manage".
 +
-image::../../Common/images/SpringCloudConsole.png[]
+image::../../Common/images/lab8screenshot1.png[]
 +
 . You should see a blank page for the Config Server.
 +
-image::../../Common/images/ConfigServerUp.png[]
+image::../../Common/images/lab8screenshot2.png[]
 +
-. Later you will set up your own configuration repository in Github.  For now, enter "https://github.com/mstine/config-repo".
+. Later you will set up your own configuration repository in Github.  For now, enter "https://github.com/bboe-pivotal/hello-world-config-repo".
 +
-image::../../Common/images/ConfigServerStine.png[]
-+
-. Go back to the Application Manager console and click "Manage" under "service-registry".  When the service has initialized you should a screen similar to the following:
-+
-image::../../Common/images/RegistryUp.png[]
-+
-. Go back to the Application Manager console and click "Manage" under "circuit-breaker".  When the service has initialized you should a screen similar to the following:
-+
-image::../../Common/images/CircuitBreakerUp.png[]
+image::../../Common/images/lab8screenshot3.png[]
 
-== Push the applications
+== Build and Push the applications
 
-. Change to the directory that contains fortune-ui and fortune-teller-fortune-service.
+. Change to the directory that contains hello-ui and hello-server components.
 +
 ----
-$ cd $COURSE_HOME/session_05/lab_08/fortune-teller
+$ cd $COURSE_HOME/session_05/lab_08/hello-world
 ----
 
 . Open the manifest.yml file.  Notice the application names and the service bindings.
 +
 ----
 ---
-memory: 384M
+memory: 1GB
 instances: 1
 applications:
-- name: fortune-service
-  host: fortunes-${random-word}
-  path: fortune-teller-fortune-service/target/fortune-teller-fortune-service-0.0.1-SNAPSHOT.jar
+- name: hello-server
+  host: hello-server-${random-word}
+  path: hello-server/target/hello-server-0.0.1-SNAPSHOT.jar
   services:
-  - fortune-db
-  - config-service
   - service-registry
-  env:
-        SPRING_PROFILES_ACTIVE: pws
-- name: fortune-ui
-  host: fortunes-ui-${random-word}
-  path: fortune-teller-ui/target/fortune-teller-ui-0.0.1-SNAPSHOT.jar
+  - config-server
+- name: hello-ui
+  host: hello-ui-${random-word}
+  path: hello-ui/target/hello-ui-0.0.1-SNAPSHOT.jar
   services:
-  - config-service
   - service-registry
+  - config-server
+  - circuit-breaker
 ----
 
-.  Push the applications
+.  Build the applications
 +
 ----
-$cf push
-Using manifest file /Users/whewatt/temp/manifest.yml
+$./mvnw package
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] hello-server
+[INFO] hello-ui
+[INFO] Hello World Cloud Native Demo!
 
-Creating app fortune-service in org whewatt_org / space testing as whewatt@pivotal.io...
+...
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Hello World Cloud Native Demo! 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] hello-server ....................................... SUCCESS [  5.342 s]
+[INFO] hello-ui ........................................... SUCCESS [  5.206 s]
+[INFO] Hello World Cloud Native Demo! ..................... SUCCESS [  0.001 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10.940 s
+[INFO] Finished at: 2015-12-09T00:20:31-05:00
+[INFO] Final Memory: 49M/418M
+[INFO] ------------------------------------------------------------------------
+----
+.  Push the applications and tell Cloud Foundry not to start the applications quite yet
++
+----
+$cf push --no-start
+Using manifest file manifest.yml
+
+Creating app hello-server in org student20-org / space development as student20...
 OK
 
-Creating route fortunes-cockaded-electrodynamometer.south.fe.pivotal.io...
+Creating route hello-server-peacelike-nonpropagation.pcf3.cloud.fe.pivotal.io...
 OK
 
-Binding fortunes-cockaded-electrodynamometer.south.fe.pivotal.io to fortune-service...
+Binding hello-server-peacelike-nonpropagation.pcf3.cloud.fe.pivotal.io to hello-server...
 OK
 
-Uploading fortune-service...
-Uploading app files from: /Users/whewatt/temp/fortune-teller-fortune-service/target/fortune-teller-fortune-service-0.0.1-SNAPSHOT.jar
+Uploading hello-server...
+Uploading app files from: hello-server/target/hello-server-0.0.1-SNAPSHOT.jar
+Uploading 1M, 116 files
+Done uploading
+OK
+Binding service service-registry to app hello-server in org student20-org / space development as student20...
+OK
+Binding service config-server to app hello-server in org student20-org / space development as student20...
+OK
+
+Creating app hello-ui in org student20-org / space development as student20...
+OK
+
+Creating route hello-ui-oversoft-curfew.pcf3.cloud.fe.pivotal.io...
+OK
+
+Binding hello-ui-oversoft-curfew.pcf3.cloud.fe.pivotal.io to hello-ui...
+OK
+
+Uploading hello-ui...
+Uploading app files from: hello-ui/target/hello-ui-0.0.1-SNAPSHOT.jar
 Uploading 1.2M, 130 files
-Done uploading               
+Done uploading
 OK
-Binding service fortune-db to app fortune-service in org whewatt_org / space testing as whewatt@pivotal.io...
+Binding service service-registry to app hello-ui in org student20-org / space development as student20...
 OK
-Binding service config-server to app fortune-service in org whewatt_org / space testing as whewatt@pivotal.io...
+Binding service config-server to app hello-ui in org student20-org / space development as student20...
 OK
-Binding service service-registry to app fortune-service in org whewatt_org / space testing as whewatt@pivotal.io...
+Binding service circuit-breaker to app hello-ui in org student20-org / space development as student20...
 OK
-
-Starting app fortune-service in org whewatt_org / space testing as whewatt@pivotal.io...
------> Downloaded app package (36M)
------> Java Buildpack Version: v3.0 (offline) | https://github.com/cloudfoundry/java-buildpack.git#3bd15e1
------> Downloading Open Jdk JRE 1.8.0_40 from https://download.run.pivotal.io/openjdk/trusty/x86_64/openjdk-1.8.0_40.tar.gz (found in cache)
-       Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (1.0s)
------> Downloading Spring Auto Reconfiguration 1.7.0_RELEASE from https://download.run.pivotal.io/auto-reconfiguration/auto-reconfiguration-1.7.0_RELEASE.jar (found in cache)
-
------> Uploading droplet (80M)
-
-0 of 1 instances running, 1 starting
-0 of 1 instances running, 1 starting
-0 of 1 instances running, 1 starting
-1 of 1 instances running
-
-App started
-
-
-OK
-
-App fortune-service was started using this command `SERVER_PORT=$PORT $PWD/.java-buildpack/open_jdk_jre/bin/java -cp $PWD/.:$PWD/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-1.7.0_RELEASE.jar -Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K -Xms382293K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss995K org.springframework.boot.loader.JarLauncher`
-
-Showing health and status for app fortune-service in org whewatt_org / space testing as whewatt@pivotal.io...
-OK
-
-requested state: started
-instances: 1/1
-usage: 512M x 1 instances
-urls: fortunes-cockaded-electrodynamometer.south.fe.pivotal.io
-last uploaded: Tue Sep 8 16:11:07 UTC 2015
-stack: cflinuxfs2
-
-     state     since                    cpu    memory           disk           details   
-#0   running   2015-09-08 12:11:54 PM   0.0%   438.1M of 512M   159.1M of 1G      
-Creating app fortune-ui in org whewatt_org / space testing as whewatt@pivotal.io...
-OK
-
-Creating route fortunes-ui-underdeveloped-caracara.south.fe.pivotal.io...
-OK
-
-Binding fortunes-ui-underdeveloped-caracara.south.fe.pivotal.io to fortune-ui...
-OK
-
-Uploading fortune-ui...
-Uploading app files from: /Users/whewatt/temp/fortune-teller-ui/target/fortune-teller-ui-0.0.1-SNAPSHOT.jar
-Uploading 1.1M, 133 files
-Done uploading               
-OK
-Binding service config-server to app fortune-ui in org whewatt_org / space testing as whewatt@pivotal.io...
-OK
-Binding service service-registry to app fortune-ui in org whewatt_org / space testing as whewatt@pivotal.io...
-OK
-Binding service circuit-breaker to app fortune-ui in org whewatt_org / space testing as whewatt@pivotal.io...
-OK
-
-Starting app fortune-ui in org whewatt_org / space testing as whewatt@pivotal.io...
------> Downloaded app package (36M)
------> Java Buildpack Version: v3.0 (offline) | https://github.com/cloudfoundry/java-buildpack.git#3bd15e1
------> Downloading Open Jdk JRE 1.8.0_40 from https://download.run.pivotal.io/openjdk/trusty/x86_64/openjdk-1.8.0_40.tar.gz (found in cache)
-       Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (1.1s)
------> Downloading Spring Auto Reconfiguration 1.7.0_RELEASE from https://download.run.pivotal.io/auto-reconfiguration/auto-reconfiguration-1.7.0_RELEASE.jar (found in cache)
-
------> Uploading droplet (79M)
-
-0 of 1 instances running, 1 starting
-0 of 1 instances running, 1 starting
-1 of 1 instances running
-
-App started
-
-
-OK
-
-App fortune-ui was started using this command `SERVER_PORT=$PORT $PWD/.java-buildpack/open_jdk_jre/bin/java -cp $PWD/.:$PWD/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-1.7.0_RELEASE.jar -Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K -Xms382293K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss995K org.springframework.boot.loader.JarLauncher`
-
-Showing health and status for app fortune-ui in org whewatt_org / space testing as whewatt@pivotal.io...
-OK
-
-requested state: started
-instances: 1/1
-usage: 512M x 1 instances
-urls: fortunes-ui-underdeveloped-caracara.south.fe.pivotal.io
-last uploaded: Tue Sep 8 16:12:13 UTC 2015
-stack: cflinuxfs2
-
-     state     since                    cpu    memory           disk           details   
-#0   running   2015-09-08 12:12:57 PM   0.0%   395.6M of 512M   158.5M of 1G     
 ----
 
-. Verify that the applications are running by visiting the routes that were generated by the CLI.
+.  Spring Cloud Services uses HTTPS for all client-to-service communication. If your Pivotal Cloud Foundry installation is using a self-signed SSL certificate, the certificate will need to be added to the JVM truststore before your client application can use a Service Registry service instance to discover a service application. Start by taking note of the Cloud Foundry API endpoint of your environment.
++
+----
+$cf api
+API endpoint: https://api.mypcfdeployemnt.mycompany.com (API version: 2.43.0)
+----
 
-image::/../../Common/images/YourFutureIsUnclear.png[]
+. Enable Spring Cloud Services to add the certificate automatically by setting the CF_TARGET environment variable on the hello-server and hello-ui applications to the API endpoint of your Elastic Runtime instance. First do this for the hello-server application.
++
+----
+$cf set-env hello-server CF_TARGET https://api.mypcfdeployemnt.mycompany.com
+Setting env variable 'CF_TARGET' to 'https://api.mypcfdeployemnt.mycompany.com' for app hello-server in org student20-org / space development as student20...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+----
+
+. Then repeat for the hello-ui application
++
+----
+$cf set-env hello-ui CF_TARGET https://api.mypcfdeployemnt.mycompany.com
+Setting env variable 'CF_TARGET' to 'https://api.mypcfdeployemnt.mycompany.com' for app hello-ui in org student20-org / space development as student20...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+----
+
+. Now the applications are ready to run. First start the hello-server application.
++
+----
+$cf start hello-server
+Starting app hello-server in org student20-org / space development as student20...
+Creating container
+Successfully created container
+Downloading app package...
+Downloaded app package (24M)
+No buildpack specified; fetching standard buildpacks to detect and build your application.
+Downloading buildpacks (staticfile_buildpack, java_buildpack_offline, ruby_buildpack, nodejs_buildpack, go_buildpack, python_buildpack, php_buildpack, binary_buildpack)...
+Downloading nodejs_buildpack...
+Downloading go_buildpack...
+Downloading python_buildpack...
+Downloading php_buildpack...
+Downloading staticfile_buildpack...
+Downloaded staticfile_buildpack
+Downloading java_buildpack_offline...
+Downloaded nodejs_buildpack
+Downloading ruby_buildpack...
+Downloaded python_buildpack
+Downloading binary_buildpack...
+Downloaded binary_buildpack
+Downloaded java_buildpack_offline
+Downloaded php_buildpack
+Downloaded ruby_buildpack
+Downloaded go_buildpack
+Downloaded buildpacks
+Staging...
+-----> Java Buildpack Version: v3.3.1 (offline) | https://github.com/cloudfoundry/java-buildpack.git#063836b
+-----> Downloading Open Jdk JRE 1.8.0_65 from https://download.run.pivotal.io/openjdk/trusty/x86_64/openjdk-1.8.0_65.tar.gz (found in cache)
+       Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (1.2s)
+-----> Downloading Open JDK Like Memory Calculator 2.0.0_RELEASE from https://download.run.pivotal.io/memory-calculator/trusty/x86_64/memory-calculator-2.0.0_RELEASE.tar.gz (found in cache)
+       Memory Settings: -Xss1M -Xmx768M -XX:MaxMetaspaceSize=104857K -Xms768M -XX:MetaspaceSize=104857K
+-----> Downloading Spring Auto Reconfiguration 1.10.0_RELEASE from https://download.run.pivotal.io/auto-reconfiguration/auto-reconfiguration-1.10.0_RELEASE.jar (found in cache)
+Exit status 0
+Staging complete
+Uploading droplet, build artifacts cache...
+Uploading droplet...
+Uploading build artifacts cache...
+Uploaded build artifacts cache (109B)
+Uploaded droplet (68.7M)
+Uploading complete
+
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App hello-server was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-2.0.0_RELEASE -memorySizes=metaspace:64m.. -memoryWeights=heap:75,metaspace:10,native:10,stack:5 -memoryInitials=heap:100%,metaspace:100% -totMemory=$MEMORY_LIMIT) && SERVER_PORT=$PORT $PWD/.java-buildpack/open_jdk_jre/bin/java -cp $PWD/.:$PWD/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-1.10.0_RELEASE.jar -Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh $CALCULATED_MEMORY org.springframework.boot.loader.JarLauncher`
+
+Showing health and status for app hello-server in org student20-org / space development as student20...
+OK
+
+requested state: started
+instances: 1/1
+usage: 1G x 1 instances
+urls: hello-server-peacelike-nonpropagation.pcf3.cloud.fe.pivotal.io
+last uploaded: Wed Dec 9 05:23:11 UTC 2015
+stack: cflinuxfs2
+buildpack: java-buildpack=v3.3.1-offline-https://github.com/cloudfoundry/java-buildpack.git#063836b java-main open-jdk-like-jre=1.8.0_65 open-jdk-like-memory-calculator=2.0.0_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
+
+     state     since                    cpu    memory    disk      details
+#0   running   2015-12-09 12:36:44 AM   0.0%   0 of 1G   0 of 1G
+----
+
+. Start the hello-ui application.
++
+----
+$cf start hello-ui
+Starting app hello-ui in org student20-org / space development as student20...
+Creating container
+Successfully created container
+Downloading app package...
+Downloaded app package (36.5M)
+No buildpack specified; fetching standard buildpacks to detect and build your application.
+Downloading buildpacks (staticfile_buildpack, java_buildpack_offline, ruby_buildpack, nodejs_buildpack, go_buildpack, python_buildpack, php_buildpack, binary_buildpack)...
+Downloading staticfile_buildpack...
+Downloading java_buildpack_offline...
+Downloading ruby_buildpack...
+Downloading nodejs_buildpack...
+Downloaded staticfile_buildpack
+Downloading go_buildpack...
+Downloading python_buildpack...
+Downloaded nodejs_buildpack
+Downloading php_buildpack...
+Downloaded ruby_buildpack
+Downloading binary_buildpack...
+Downloaded binary_buildpack
+Downloaded php_buildpack
+Downloaded python_buildpack
+Downloaded java_buildpack_offline
+Downloaded go_buildpack
+Downloaded buildpacks
+Staging...
+-----> Java Buildpack Version: v3.3.1 (offline) | https://github.com/cloudfoundry/java-buildpack.git#063836b
+-----> Downloading Open Jdk JRE 1.8.0_65 from https://download.run.pivotal.io/openjdk/trusty/x86_64/openjdk-1.8.0_65.tar.gz (found in cache)
+       Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (1.4s)
+-----> Downloading Open JDK Like Memory Calculator 2.0.0_RELEASE from https://download.run.pivotal.io/memory-calculator/trusty/x86_64/memory-calculator-2.0.0_RELEASE.tar.gz (found in cache)
+       Memory Settings: -XX:MaxMetaspaceSize=104857K -Xss1M -Xmx768M -Xms768M -XX:MetaspaceSize=104857K
+-----> Downloading Spring Auto Reconfiguration 1.10.0_RELEASE from https://download.run.pivotal.io/auto-reconfiguration/auto-reconfiguration-1.10.0_RELEASE.jar (found in cache)
+Exit status 0
+Staging complete
+Uploading droplet, build artifacts cache...
+Uploading droplet...
+Uploading build artifacts cache...
+Uploaded build artifacts cache (108B)
+Uploaded droplet (81.3M)
+Uploading complete
+
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App hello-ui was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-2.0.0_RELEASE -memorySizes=metaspace:64m.. -memoryWeights=heap:75,metaspace:10,native:10,stack:5 -memoryInitials=heap:100%,metaspace:100% -totMemory=$MEMORY_LIMIT) && SERVER_PORT=$PORT $PWD/.java-buildpack/open_jdk_jre/bin/java -cp $PWD/.:$PWD/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-1.10.0_RELEASE.jar -Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh $CALCULATED_MEMORY org.springframework.boot.loader.JarLauncher`
+
+Showing health and status for app hello-ui in org student20-org / space development as student20...
+OK
+
+requested state: started
+instances: 1/1
+usage: 1G x 1 instances
+urls: hello-ui-oversoft-curfew.pcf3.cloud.fe.pivotal.io
+last uploaded: Wed Dec 9 05:23:24 UTC 2015
+stack: cflinuxfs2
+buildpack: java-buildpack=v3.3.1-offline-https://github.com/cloudfoundry/java-buildpack.git#063836b java-main open-jdk-like-jre=1.8.0_65 open-jdk-like-memory-calculator=2.0.0_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
+
+     state     since                    cpu    memory         disk           details
+#0   running   2015-12-09 12:37:16 AM   0.0%   484.3M of 1G   190.8M of 1G
+----
+
+. Verify that the applications visiting the URL for the hello-ui application and testing it out.
+
+image::/../../Common/images/lab8screenshot4.png[]
 
