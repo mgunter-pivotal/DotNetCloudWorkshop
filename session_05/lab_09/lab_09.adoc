@@ -5,6 +5,6 @@
 +
 image::../../Common/images/lab9screenshot1.png[]
 
-. Click the "Manage" link under the service registry.  
+. Click the "Manage" link under the service registry. Notice that both the server and UI apps have registered themselves. Explore the dashboard.
 +
 image::../../Common/images/lab9screenshot2.png[]
