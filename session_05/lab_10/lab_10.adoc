@@ -20,10 +20,35 @@ $ mkdir config-repo && cd config-repo
 $ git init
 ----
 
-. In the repo, create the file `ui.yml`, and into that file paste the following:
+. In the repo, create the file `application.yml`, and into that file paste the following:
 +
 ----
-fortune-prefix: Howdy -
+greeting: Howdy %s!
+
+security:
+  basic:
+    enabled: false
+
+management:
+  security:
+    enabled: false
+    
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${server.port:8080}}
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.service-registry.credentials.uri:http://127.0.0.1:8761}/eureka/
+
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
 ----
 
 . Stage your changes and commit them:
@@ -57,28 +82,28 @@ Branch master set up to track remote branch master from origin.
 
 . Refresh the browser to see your pushed changes:
 +
-image::../../Common/images/GithubConfigRepo.png[]
+image::../../Common/images/lab10screenshot1.png[]
 
 == Point Config Server To Your Repository
 
 . Open the Application Manager console in your browser.  Go to the org and space where you created the service instances and scroll down until you see the entry for the Config Server.
 +
-image::../../Common/images/AppManager.png[]
+image::../../Common/images/lab9screenshot1.png[]
 +
 . Click the "Manage" link under the config server.  
 
 . Click the "Git" radio button and enter your config repo as the "Git URI".
 +
-image::../../Common/images/ConfigServerEntries.png[]
+image::../../Common/images/lab10screenshot2.png[]
 +
 . Click "Submit".
 
-. Tell the Fortune UI app to refresh it's configuration by sending a POST to the "refresh" endpoint.
+. Tell the Hello Server app to refresh it's configuration by sending a POST to the "refresh" endpoint.
 +
 ----
-    curl -X POST --insecure https://<Your Fortune UI URL>/refresh
+    curl -X POST --insecure https://<Your Hello Server URL>/refresh
 ----
 
 . Visit the Fortune UI once again and see your configuration value on the page.
 +
-image::../../Common/images/HowdyFortune.png[]
+image::../../Common/images/lab10screenshot3.png[]
