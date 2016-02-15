@@ -181,7 +181,7 @@ In this section, we'll drain logs to a very simple provider called https://paper
 +
 image::../../Common/images/papertrail_1.png[]
 
-. Click on ``Alternatives'':
+. Click on ``Other'', just to the right of Other Situations:
 +
 image::../../Common/images/papertrail_2.png[]
 
