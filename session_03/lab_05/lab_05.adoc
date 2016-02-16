@@ -29,6 +29,16 @@ dependencies {
 +
 [source,java]
 ----
+package org.example.cities.domain;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table(name="city")
 public class City implements Serializable {
@@ -86,7 +96,7 @@ public class City implements Serializable {
 }
 ----
 +
-Notice that we're using JPA annotations on the class and its fields. You'll need to use your IDE's features to add the appropriate import statements.
+Notice that we're using JPA annotations on the class and its fields. 
 
 . Create the package +org.example.cities.repositories+ and in that package create the interface +CityRepository+. Paste the following code and add appropriate imports:
 +
