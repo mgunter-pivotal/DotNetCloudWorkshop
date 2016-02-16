@@ -102,6 +102,12 @@ Notice that we're using JPA annotations on the class and its fields.
 +
 [source,java]
 ----
+package org.example.cities.repositories;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.example.cities.domain.City;
+
 @RepositoryRestResource(collectionResourceRel = "cities", path = "cities")
 public interface CityRepository extends PagingAndSortingRepository<City, Long> {
 }
@@ -111,6 +117,13 @@ public interface CityRepository extends PagingAndSortingRepository<City, Long> {
 +
 [source,java]
 ----
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import; // <--- Add this
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories; // <--- Add this
+import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration; // <--- Add this
+
 @SpringBootApplication
 @EnableJpaRepositories // <---- Add this
 @Import(RepositoryRestMvcConfiguration.class) // <---- And this
@@ -276,6 +289,14 @@ Page<City> findByStateCodeIgnoreCase(@Param("q") String stateCode, Pageable page
 
 @RestResource(path = "postalCode", rel = "postalCode")
 Page<City> findByPostalCode(@Param("q") String postalCode, Pageable pageable);
+----
+. Also, add these imports:
++
+[source,java]
+----
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 ----
 
 . Build the application:
