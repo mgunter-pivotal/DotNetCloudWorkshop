@@ -8,15 +8,12 @@
 $ cd $COURSE_HOME/session_04/lab_07/initial/hello-spring-boot
 ----
 
-. Import the project's `pom.xml` into your editor/IDE of choice.
+. Import the project's `build.gradle` into your editor/IDE of choice.
 
-. To `pom.xml` add the following dependency to include the starter for Spring Boot Actuator:
+. To `build.gradle` add the following dependency to include the starter for Spring Boot Actuator:
 +
 ----
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
+compile('org.springframework.boot:spring-boot-starter-actuator')
 ----
 
 == Introspection Endpoints
@@ -24,13 +21,13 @@ $ cd $COURSE_HOME/session_04/lab_07/initial/hello-spring-boot
 . Build the application:
 +
 ----
-$ mvn package
+$ ./gradlew assemble
 ----
 
 . Run the application:
 +
 ----
-$ java -jar target/hello-spring-boot-0.0.1-SNAPSHOT.jar
+$ java -jar target/hello-actuator-0.0.1-SNAPSHOT.jar
 ----
 
 . Try out the following endpoints. The output is omitted here because it can be quite large:
@@ -49,17 +46,23 @@ Spring Boot provides an endpoint (http://localhost:8080/health) that allows for 
 
 . Normally, when Spring Security is not enabled, the `/health` endpoint will only expose an `UP` or `DOWN` value.
 To simplify working with the endpoint for this lab, we will turn off its sensitivity.
-Add the following to `src/main/resources/application.yml`:
+Add the following to `src/main/resources/application.properties`:
 +
 ----
-endpoints:
-  health:
-    sensitive: false
+endpoints.health.sensitive=false
 ----
 
 . Create the class `io.pivotal.spring.hello.FlappingHealthIndicator` and into it paste the following code:
 +
 ----
+package com.example;
+
+import java.util.Random;
+
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthIndicator;
+import org.springframework.stereotype.Component;
+
 @Component
 public class FlappingHealthIndicator implements HealthIndicator{
 
@@ -82,7 +85,7 @@ This demo health indicator will randomize the health check.
 . Build the application:
 +
 ----
-$ mvn package
+$ ./gradlew assemble 
 ----
 
 . Run the application:
