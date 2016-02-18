@@ -1,4 +1,4 @@
-package io.pivotal.spring.hello;
+package com.example;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,9 +7,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = HelloSpringBootApplication.class)
+@SpringApplicationConfiguration(classes = HelloActuatorApplication.class)
 @WebAppConfiguration
-public class HelloSpringBootApplicationTests {
+public class HelloActuatorApplicationTests {
 
 	@Test
 	public void contextLoads() {
