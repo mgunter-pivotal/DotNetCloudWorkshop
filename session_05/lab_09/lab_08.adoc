@@ -17,7 +17,7 @@ Creating service instance service-registry in org student20-org / space developm
 OK
 ----
 +
-. Next, we need to tell Cloud Foundry to bind this service instance to each of our applications.  Open the manifest.yml file and add a `services` section that references the new service you created.  The result will look like this:
+. Next, we need to tell Cloud Foundry to bind this service instance to each of our applications.  Open the manifest.yml file and add two `services` sections, one for each application, that references the new service you created.  The result will look like this:
 +
 ----
 ---
