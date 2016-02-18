@@ -4,7 +4,7 @@ applications:
   host: hello-ui-${random-word}
   memory: 1GB
   instances: 1
-  path: target/hello-ui-0.0.1-SNAPSHOT.jar
+  path: build/libs/hello-ui-0.0.1-SNAPSHOT.jar
   services:
   - service-registry
   - config-server

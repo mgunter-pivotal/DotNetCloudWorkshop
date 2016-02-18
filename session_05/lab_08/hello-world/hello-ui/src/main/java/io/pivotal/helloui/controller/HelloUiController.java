@@ -17,7 +17,7 @@ public class HelloUiController {
 
     @RequestMapping("/hello")
     public HelloResponse sayHello(@RequestParam(value="id", defaultValue="0") Long id,
-    								@RequestParam(value="name", defaultValue="World") String toWho) {
+    								@RequestParam(value="name", defaultValue="World") String toWho) throws Exception {
 
         String result = sayHelloCommand.sayHello(toWho);
     	return new HelloResponse(id, result);

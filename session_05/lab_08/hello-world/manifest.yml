@@ -4,14 +4,18 @@ instances: 1
 applications:
 - name: hello-server
   host: hello-server-${random-word}
-  path: hello-server/target/hello-server-0.0.1-SNAPSHOT.jar
+  path: hello-server/build/libs/hello-server-0.0.1-SNAPSHOT.jar
   services:
   - service-registry
   - config-server
+  env:
+    CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
 - name: hello-ui
   host: hello-ui-${random-word}
-  path: hello-ui/target/hello-ui-0.0.1-SNAPSHOT.jar
+  path: hello-ui/build/libs/hello-ui-0.0.1-SNAPSHOT.jar
   services:
   - service-registry
   - config-server
   - circuit-breaker
+  env:
+    CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
