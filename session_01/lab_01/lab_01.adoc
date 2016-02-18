@@ -11,8 +11,8 @@
 ----
 $ set https_proxy=bcproxy.ugcorp.com
 ----
-
-. Note that this environment variable only applies to the current command line session. You can alternately add this to the Windows Environment variables so that you don't have to reenter this value every time you use the CLI.
++
+Note that this environment variable only applies to the current command line session. You can alternately add this to the Windows Environment variables so that you don't have to reenter this value every time you use the CLI.
 
 . Set the API target for the CLI:
 +
