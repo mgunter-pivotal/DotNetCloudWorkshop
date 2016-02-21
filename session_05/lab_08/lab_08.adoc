@@ -14,7 +14,7 @@ In this lab, we'll deploy a couple of really simple microservices. The first is 
 . First off, cd into the lab directory
 +
 ----
-$ cd $COURSE_HOME/session_05/lab_08/initial/hello-world
+$ cd $COURSE_HOME/session_05/lab_08/initial/
 ----
 
 . List the directory, and notice that there are two projects, hello-ui and hello-server
@@ -41,7 +41,7 @@ drwxr-xr-x  14 jrolfe  staff   476 Feb 18 14:59 hello-server
 . Build both projects.
 +
 ----
-$ cd $COURSE_HOME/session_05/lab_08/initial/hello-world
+$ cd $COURSE_HOME/session_05/lab_08/initial/
 $ ./gradlew assemble
 ----
 +
