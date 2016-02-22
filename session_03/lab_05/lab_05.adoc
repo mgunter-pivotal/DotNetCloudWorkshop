@@ -13,8 +13,9 @@ NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/l
 $ cd $COURSE_HOME/session_03/lab_05/initial/cities
 ----
 
-. Optionally generate project files for your favorite IDE by running +./gradlew idea+ or +./gradlew eclipse+. Then open the project in your editor or IDE of choice.
-
+. Throughout the rest of today's labs, we'll often be writing code.  You can always edit source code files directly in your favorite text editor, but in the real world, you'd want to import these projects into a real development environment like Eclipse/RAD or IntelliJ.  Fortunately, its easy to do this.  You can generate project files for your favorite IDE by running going to the root project directory and running +./gradlew idea+ or +./gradlew eclipse+. When this command is completed, you can use the import existing project function of your editor, point it at the same directory you ran the gradle command in, and bring in all of the necessary files to edit within the IDE.
++
+So, for the next steps, you can either use a text editor or IDE. 
 . Add a runtime dependency on the http://hsqldb.org/[HyperSQL in-memory database] to +build.gradle+:
 +
 [source,groovy]

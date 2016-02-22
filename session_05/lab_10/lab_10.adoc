@@ -68,8 +68,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @Value("${greeting}")
-    String greeting;
+    @Value("${greeting}")   // <--- Add this annotation
+    String greeting;        // <--- Remove the assignment
 
     @RequestMapping("/hello")
     public String sayHello(@RequestParam(value="name", defaultValue="World") String toWho) {

@@ -61,7 +61,7 @@ dependencies {
 }
 ----
 +
-Since we've added new dependencies, re-run +./gradlew idea+ or +./gradlew eclipse+ to have them added to the IDE classpath.
+Since we've added new dependencies, if you are using Eclipse/RAD or IntelliJ, you'll need to re-run +./gradlew idea+ or +./gradlew eclipse+ to have them added to the IDE classpath.
 
 . Next, let's create the package +org.example.cities.config+ and create in that package the class +CloudDataSourceConfig+. Add the following code:
 +
