@@ -86,7 +86,7 @@ public class SayHelloCommand {
 	@LoadBalanced
 	RestTemplate restTemplate;
 
-	@HystrixCommand(fallbackMethod = "sayHelloFallback")   // <--- Add this
+	 @HystrixCommand(fallbackMethod = "sayHelloFallback")   // <--- Add this
     public String sayHello(String toWho) throws Exception {
         try{
         	return restTemplate.getForObject("http://hello-world-server/hello?name={name}", String.class, toWho);
@@ -96,8 +96,7 @@ public class SayHelloCommand {
         }
     }
 
-   // --- Add this method ---
-	public String sayHelloFallback(String toWho) {
+	public String sayHelloFallback(String toWho) {   // --- Add this method ---
 		return String.format("Come back later to hear me say hello, %s", toWho);
 	}
 }
@@ -108,7 +107,7 @@ public class SayHelloCommand {
 . Change to the directory that contains hello-ui and hello-server components.
 +
 ----
-$ cd $COURSE_HOME/session_05/lab_08/hello-world
+$ cd $COURSE_HOME/session_05/lab_08/initial
 ----
 +
 .  Build the applications

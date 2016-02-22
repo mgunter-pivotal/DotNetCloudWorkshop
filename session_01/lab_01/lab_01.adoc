@@ -15,8 +15,15 @@ $ set https_proxy=bcproxy.ugcorp.com
 . The labs also build using gradle, which will have problems with the proxy as well.  Set the following from the same command prompt:
 ----
 $ set JAVA_OPTS="-Dhttps.proxyHost=bcproxy.ugcorp.com -Dhttps.proxyPort=8080"
+----
 +
-Note that this environment variable only applies to the current command line session. You can alternately add this to the Windows Environment variables so that you don't have to reenter this value every time you use the CLI.
+. And finally, you need to have java in your path.  You can set this with the following command:
++
+----
+$ set PATH=%PATH%;c:\ibm\sdp\jdk\bin\
+----
++
+Note that these environment variables only apply to the current command line session. You can alternately add this to the Windows Environment variables so that you don't have to reenter this value every time you use the CLI.
 
 . Set the API target for the CLI:
 +
