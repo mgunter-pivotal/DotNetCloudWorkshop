@@ -9,8 +9,6 @@ Cloud-native architectures are typically composed of multiple layers of distribu
 
 == Configuring the Circuit Breaker Dashboard
 
-In this lab, we will update our hello user interface to be resilient to failures in the services its dependent on.
-+
 . First, we need an instance of the Circuit Breaker Dashboard service.
 
 ----
