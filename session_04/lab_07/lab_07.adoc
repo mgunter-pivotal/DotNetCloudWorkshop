@@ -20,7 +20,7 @@ Remember, if you are using eclipse, to update its classpath file after modifying
 and then refresh the project inside of eclipse.
 
 == Introspection Endpoints
-+
+
 . Build the application:
 +
 ----
