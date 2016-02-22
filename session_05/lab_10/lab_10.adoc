@@ -2,7 +2,7 @@
 = Lab 10 - Using the Config Server
 
 [abstract]
-Spring Cloud Config provides server and client-side support for externalized configuration in a distributed system. With the Config Server you have a central place to manage external properties for applications across all environments.
+Here we continue using the same code, and extend it to use Spring Cloud Config.  Spring Cloud Config provides server and client-side support for externalized configuration in a distributed system. With the Config Server you have a central place to manage external properties for applications across all environments.
 --
 
 --
@@ -16,7 +16,7 @@ $cf create-service p-config-server standard config-server
 Creating service instance config-server in org student20-org / space development as student20...
 OK
 ----
-+
+
 . Next we need to configure the config server. Open the Application Manager console and scroll down until you see the Spring Cloud services.  Under the "config-server", click "Manage".
 +
 image::../../Common/images/lab8screenshot1.png[]
