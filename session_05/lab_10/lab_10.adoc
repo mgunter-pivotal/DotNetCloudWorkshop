@@ -10,7 +10,7 @@ Here we continue using the same code, and extend it to use Spring Cloud Config. 
 == Configuring the Config Server
 
 . First, we need an instance of the config server service.
-++
++
 ----
 $cf create-service p-config-server standard config-server
 Creating service instance config-server in org student20-org / space development as student20...
