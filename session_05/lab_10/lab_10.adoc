@@ -81,7 +81,7 @@ public class HelloController {
 ----
 
 == Build and Push the applications
-+
+
 . Change to the directory that contains hello-ui and hello-server components.
 +
 ----
