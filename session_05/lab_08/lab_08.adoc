@@ -3,7 +3,7 @@
 
 [abstract]
 +
-In this lab, we'll deploy a couple of really simple microservices. The first is a RESTful API that has the business logic needed to say Hello to people. The second is a UI that finds out who you are and then says Hello to you.  
+In this lab, we'll deploy a couple of really simple microservices. The first is a RESTful API that has the business logic needed to say Hello to people. The second is a UI that finds out who you are and then says Hello to you.
 --
 
 --
@@ -34,7 +34,7 @@ drwxr-xr-x  15 jrolfe  staff   510 Feb 18 14:59 hello-ui
 drwxr-xr-x  14 jrolfe  staff   476 Feb 18 14:59 hello-server
 ----
 
-. The rest of the labs will ask you to edit portions of these two applications.  You may generate eclipse or idea projects using `./gradlew eclipse` or `./gradlew idea` or you can simply edit the files with the editor of your choice. We will not be making a lot of changes.
+. The rest of the labs will ask you to edit portions of these two applications.  You may generate eclipse or idea projects using `gradlew.bat eclipse` or `gradlew.bat idea` or you can simply edit the files with the editor of your choice. We will not be making a lot of changes.
 +
 . In each project, drill down into the src/main/resources directory, and open up `bootstrap.yml` - notice that we've registered a logical name for each application here.
 +
@@ -42,7 +42,7 @@ drwxr-xr-x  14 jrolfe  staff   476 Feb 18 14:59 hello-server
 +
 ----
 $ cd $COURSE_HOME/session_05/lab_08/initial/
-$ ./gradlew assemble
+$ gradlew.bat assemble
 ----
 +
 . Open the manifest.yml file, and notice how we can push both applications from a single manifest.
