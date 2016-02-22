@@ -10,7 +10,7 @@ The service registry is a phone book for your microservices. Each service regist
 == Configuring the Service Registry
 
 OK, let's get our microservices talking to each other
-+
+
 . First, we need an instance of the service registry service.
 +
 ----
