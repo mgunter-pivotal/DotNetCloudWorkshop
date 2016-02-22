@@ -96,7 +96,7 @@ public class City implements Serializable {
 }
 ----
 +
-Notice that we're using JPA annotations on the class and its fields. 
+Notice that we're using JPA annotations on the class and its fields.
 
 . Create the package +org.example.cities.repositories+ and in that package create the interface +CityRepository+. Paste the following code and add appropriate imports:
 +
@@ -149,19 +149,13 @@ $ ./gradlew assemble
 $ java -jar build/libs/cities-0.0.1-SNAPSHOT.jar
 ----
 
-. Access the application using +curl+. You'll see that the primary endpoint automatically exposes the ability to page, size, and sort the response JSON.
+. Access the application using +Firefox+ (Note that for the lab on 2/23, the proxy settings on Internet Explorer prevent accessing localhost, so you must use Firefox). You'll see that the primary endpoint automatically exposes the ability to page, size, and sort the response JSON.
 +
 So what have you done? Created four small classes and one build file, resulting in a fully-functional REST microservice. The application's +DataSource+ is created automatically by Spring Boot using the in-memory database because no other +DataSource+ was detected in the project.
 +
 [source,bash]
 ----
-$ curl -i localhost:8080/cities
-HTTP/1.1 200 OK
-Server: Apache-Coyote/1.1
-X-Application-Context: application
-Content-Type: application/hal+json
-Transfer-Encoding: chunked
-Date: Tue, 27 May 2014 19:34:45 GMT
+http://localhost:8080/cities
 
 {
   "_links" : {
@@ -199,17 +193,11 @@ $ ./gradlew assemble
 $ java -jar build/libs/cities-0.0.1-SNAPSHOT.jar
 ----
 
-. Access the application again using +curl+. Notice the appropriate hypermedia is included for +next+, +previous+, and +self+. You can also select pages and page size by utilizing +?size=n&page=n+ on the URL string. Finally, you can sort the data utilizing +?sort=fieldName+.
+. Access the application again using +firefox+. Notice the appropriate hypermedia is included for +next+, +previous+, and +self+. You can also select pages and page size by utilizing +?size=n&page=n+ on the URL string. Finally, you can sort the data utilizing +?sort=fieldName+.
 +
 [source,bash]
 ----
-$ curl -i localhost:8080/cities
-HTTP/1.1 200 OK
-Server: Apache-Coyote/1.1
-X-Application-Context: application
-Content-Type: application/hal+json
-Transfer-Encoding: chunked
-Date: Tue, 27 May 2014 19:59:58 GMT
+localhost:8080/cities
 
 {
   "_links" : {
@@ -261,13 +249,13 @@ Date: Tue, 27 May 2014 19:59:58 GMT
 }
 ----
 
-. Try the following +curl+ statements to see how the application behaves:
+. Try the following urls  to see how the application behaves:
 +
 [source,bash]
 ----
-$ curl -i "localhost:8080/cities?size=5"
-$ curl -i "localhost:8080/cities?size=5&page=3"
-$ curl -i "localhost:8080/cities?sort=postalCode,desc"
+localhost:8080/cities?size=5
+localhost:8080/cities?size=5&page=3
+localhost:8080/cities?sort=postalCode,desc
 ----
 +
 Next we'll add searching capabilities.
@@ -313,17 +301,11 @@ $ ./gradlew assemble
 $ java -jar build/libs/cities-0.0.1-SNAPSHOT.jar
 ----
 
-. Access the application again using +curl+. Notice that hypermedia for a new +search+ endpoint has appeared.
+. Access the application again from Firefox. Notice that hypermedia for a new +search+ endpoint has appeared.
 +
 [source,bash]
 ----
-$ curl -i "localhost:8080/cities"
-HTTP/1.1 200 OK
-Server: Apache-Coyote/1.1
-X-Application-Context: application
-Content-Type: application/hal+json
-Transfer-Encoding: chunked
-Date: Tue, 27 May 2014 20:33:52 GMT
+localhost:8080/cities
 
 {
   "_links" : {
@@ -345,13 +327,7 @@ Date: Tue, 27 May 2014 20:33:52 GMT
 +
 [source,bash]
 ----
-$ curl -i "localhost:8080/cities/search"
-HTTP/1.1 200 OK
-Server: Apache-Coyote/1.1
-X-Application-Context: application
-Content-Type: application/hal+json
-Transfer-Encoding: chunked
-Date: Tue, 27 May 2014 20:38:32 GMT
+localhost:8080/cities/search
 
 {
   "_links" : {
@@ -381,9 +357,9 @@ Note that we now have new search endpoints for each of the finders that we added
 +
 [source,bash]
 ----
-$ curl -i "http://localhost:8080/cities/search/postalCode?q=00623"
-$ curl -i "http://localhost:8080/cities/search/name?q=Boston"
-$ curl -i "http://localhost:8080/cities/search/nameContains?q=Fort&size=1"
+http://localhost:8080/cities/search/postalCode?q=00623
+http://localhost:8080/cities/search/name?q=Boston
+http://localhost:8080/cities/search/nameContains?q=Fort&size=1
 ----
 
 == Pushing to Cloud Foundry
@@ -430,5 +406,5 @@ urls: cities-undeliverable-iatrochemistry.cf.mycloud.com
 +
 [source,bash]
 ----
-$ curl -i cities-undeliverable-iatrochemistry.cf.mycloud.com/cities
+cities-undeliverable-iatrochemistry.cf.mycloud.com/cities
 ----

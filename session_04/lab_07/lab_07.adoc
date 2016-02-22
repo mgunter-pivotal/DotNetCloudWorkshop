@@ -31,7 +31,7 @@ $ ./gradlew assemble
 $ java -jar build/libs/hello-actuator-0.0.1-SNAPSHOT.jar
 ----
 
-. Try out the following endpoints. The output is omitted here because it can be quite large:
+. Try out the following endpoints. Remember, you must use Firefox given your organizations proxy configuration within Internet Explorer.  The output is omitted here because it can be quite large:
 +
 http://localhost:8080/beans:: Dumps all of the beans in the Spring context.
 http://localhost:8080/autoconfig:: Dumps all of the auto-configuration performed as part of application bootstrapping.
@@ -86,7 +86,7 @@ This demo health indicator will randomize the health check.
 . Build the application:
 +
 ----
-$ ./gradlew assemble 
+$ ./gradlew assemble
 ----
 
 . Run the application:
@@ -134,7 +134,7 @@ public class MoodyService {
 
 	@Autowired
 	CounterService counterService;
-	
+
 	public String getMood() {
 		counterService.increment("counter.services.moody.invoked");
 		return (new Random().nextBoolean() ? "Its a beautiful day" : "I hate everyone");
@@ -161,11 +161,11 @@ public class HelloActuatorApplication {
 
 	@Autowired
 	MoodyService moodyService;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(HelloActuatorApplication.class, args);
 	}
-	
+
 	@RequestMapping("/")
 	public String hello() {
 		return String.format("Hello World! %s", moodyService.getMood());
@@ -178,7 +178,7 @@ We've added the `RestController` annotation to mark this class as one that will 
 . Build the application:
 +
 ----
-$ ./gradlew assemble 
+$ ./gradlew assemble
 ----
 
 . Run the application:
