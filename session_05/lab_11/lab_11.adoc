@@ -10,7 +10,7 @@ Cloud-native architectures are typically composed of multiple layers of distribu
 == Configuring the Circuit Breaker Dashboard
 
 . First, we need an instance of the Circuit Breaker Dashboard service.
-
++
 ----
 $ cf create-service p-circuit-breaker-dashboard standard circuit-breaker
 Creating service instance config-server in org student20-org / space development as student20...
