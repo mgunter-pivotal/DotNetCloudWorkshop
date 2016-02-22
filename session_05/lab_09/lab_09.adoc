@@ -29,14 +29,14 @@ applications:
 - name: hello-server
   host: hello-server-${random-word}
   path: hello-server/build/libs/hello-server-0.0.1-SNAPSHOT.jar
-  services:
+  services:                #  Add this section
   - service-registry
   env:
     CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
 - name: hello-ui
   host: hello-ui-${random-word}
   path: hello-ui/build/libs/hello-ui-0.0.1-SNAPSHOT.jar
-  services:
+  services:                #  And add this one
   - service-registry
   env:
     CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
@@ -97,11 +97,11 @@ public class SayHelloCommand {
 
 	@Autowired                      //
 	@LoadBalanced                   //   <--- Add these lines
-	RestTemplate restTemplate;      //
+	RestTemplate rt;                //
 
     public String sayHello(String toWho) throws Exception {
         try{
-        	return restTemplate.getForObject("http://hello-world-server/hello?name={name}", String.class, toWho);  // <--- Change this
+        	return rt.getForObject("https://hello-world-server/hello?name={name}", String.class, toWho);  // <--- Change this
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -123,7 +123,7 @@ interact with it.
 
 == Build and Push the applications
 
-. Change to the directory that contains hello-ui and hello-server components.
+. Make sure everything is saved and then change to the directory that contains hello-ui and hello-server components.
 +
 ----
 $ cd $COURSE_HOME/session_05/lab_08/hello-world
@@ -135,7 +135,7 @@ $ cd $COURSE_HOME/session_05/lab_08/hello-world
 $ gradlew.bat assemble
 ----
 +
-.  Push the applications and tell Cloud Foundry not to start the applications.
+.  Push the applications to Cloud Foundry.
 +
 ----
 $cf push
