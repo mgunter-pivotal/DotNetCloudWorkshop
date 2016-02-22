@@ -34,7 +34,7 @@ drwxr-xr-x  15 jrolfe  staff   510 Feb 18 14:59 hello-ui
 drwxr-xr-x  14 jrolfe  staff   476 Feb 18 14:59 hello-server
 ----
 
-. The rest of the labs will ask you to edit portions of these two applications.  You may generate eclipse or idea projects using `gradlew.bat eclipse` or `gradlew.bat idea` or you can simply edit the files with the editor of your choice. We will not be making a lot of changes.
+. The rest of the labs will ask you to edit portions of these two applications.  You may generate eclipse or idea projects using `gradlew.bat eclipse` or `gradlew.bat idea` or you can simply edit the files with the editor of your choice.
 +
 . In each project, drill down into the src/main/resources directory, and open up `bootstrap.yml` - notice that we've registered a logical name for each application here.
 +
