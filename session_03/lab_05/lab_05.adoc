@@ -21,8 +21,12 @@ So, for the next steps, you can either use a text editor or IDE.
 [source,groovy]
 ----
 dependencies {
-    // ...
-    runtime("org.hsqldb:hsqldb")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    runtime("org.hsqldb:hsqldb") // <-- Add this line
 }
 ----
 
