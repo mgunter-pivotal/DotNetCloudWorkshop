@@ -102,7 +102,7 @@ public class SayHelloCommand {
 	}
 }
 ----
-+
+
 == Build and Push the applications
 
 . Change to the directory that contains hello-ui and hello-server components.
@@ -122,7 +122,7 @@ $ gradlew.bat assemble
 ----
 $cf push
 ----
-+
+
 == Use the Circuit Breaker Dashboard
 
 . Open the Application Manager console in your browser.  Go to the org and space where you created the service instances and scroll down until you see the entry for the Circuit Breaker
