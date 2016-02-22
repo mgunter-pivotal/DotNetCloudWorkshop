@@ -41,7 +41,7 @@ applications:
   path: hello-server/build/libs/hello-server-0.0.1-SNAPSHOT.jar
   services:
   - service-registry
-  - config-server
+  - config-server              # Add the config server here, and below as well
   env:
     CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
 - name: hello-ui
@@ -49,7 +49,7 @@ applications:
   path: hello-ui/build/libs/hello-ui-0.0.1-SNAPSHOT.jar
   services:
   - service-registry
-  - config-server
+  - config-server               # Here too
   env:
     CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
 ----
@@ -85,7 +85,7 @@ public class HelloController {
 . Change to the directory that contains hello-ui and hello-server components.
 +
 ----
-$ cd $COURSE_HOME/session_05/lab_08/hello-world
+$ cd $COURSE_HOME/session_05/lab_08/initial
 ----
 +
 .  Build the applications

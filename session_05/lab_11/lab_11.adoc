@@ -1,5 +1,5 @@
 :compat-mode:
-= Lab 10 - Using the Config Server
+= Lab 10 - Circuit Breakers
 
 [abstract]
 Cloud-native architectures are typically composed of multiple layers of distributed services. End-user requests may comprise multiple calls to these services, and if a lower-level service fails, the failure can cascade up to the end user and spread to other dependent services. Heavy traffic to a failing service can also make it difficult to repair. Using Circuit Breakers, along with the Cloud Foundry Circuit Breaker Dashboard, you can prevent failures from cascading and provide fallback behavior until a failing service is restored to normal operation.
@@ -9,6 +9,7 @@ Cloud-native architectures are typically composed of multiple layers of distribu
 
 == Configuring the Circuit Breaker Dashboard
 
+In this lab, we will update our hello user interface to be resilient to failures in the services its dependent on.
 . First, we need an instance of the Circuit Breaker Dashboard service.
 ++
 ----
@@ -17,7 +18,7 @@ Creating service instance config-server in org student20-org / space development
 OK
 ----
 +
-. And to finish the PCF configuration, add the circuit breaker service to the manifest.yml for the UI microservice, as we have done for the other SCS services in previous labs.
+. To finish the PCF configuration, add the circuit breaker service to the manifest.yml for the UI microservice, as we have done for the other SCS services in previous labs.
 +
 ----
 ---
@@ -38,7 +39,7 @@ applications:
   services:
   - service-registry
   - config-server
-  - circuit-breaker
+  - circuit-breaker     #Add this line
   env:
     CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
 ----
@@ -52,12 +53,12 @@ package io.pivotal.helloui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;  // <--- Add this import
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableCircuitBreaker  // <--- Add this
+@EnableCircuitBreaker  // <--- Add this annotation
 public class HelloUiApplication {
 
     public static void main(String[] args) {
@@ -96,7 +97,7 @@ public class SayHelloCommand {
         }
     }
 
-   // Add this method
+   // --- Add this method ---
 	public String sayHelloFallback(String toWho) {
 		return String.format("Come back later to hear me say hello, %s", toWho);
 	}
@@ -104,7 +105,7 @@ public class SayHelloCommand {
 ----
 +
 == Build and Push the applications
-+
+
 . Change to the directory that contains hello-ui and hello-server components.
 +
 ----

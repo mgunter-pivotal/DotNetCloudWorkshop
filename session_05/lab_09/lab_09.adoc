@@ -126,7 +126,7 @@ interact with it.
 . Make sure everything is saved and then change to the directory that contains hello-ui and hello-server components.
 +
 ----
-$ cd $COURSE_HOME/session_05/lab_08/hello-world
+$ cd $COURSE_HOME/session_05/lab_08/initial
 ----
 +
 .  Build the applications
