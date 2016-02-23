@@ -15,8 +15,8 @@ $ set https_proxy=bcproxy.ugcorp.com
 . The labs also build using gradle, which will have problems with the proxy as well.  Set the following from the same command prompt:
 +
 ----
-$ set JAVA_OPTS=-Dhttps.proxyHost=bcproxy.ugcorp.com
-$ set DEFAULT_JVM_OPTS=-Dhttps.proxyPort=8080
+$ set JAVA_OPTS=-Dhttp.proxyHost=bcproxy.ugcorp.com
+$ set DEFAULT_JVM_OPTS=-Dhttp.proxyPort=8080
 ----
 
 . And finally, you need to have java in your path.  You can set this with the following command:
