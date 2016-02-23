@@ -16,7 +16,7 @@ $ set https_proxy=bcproxy.ugcorp.com
 ----
 $ set JAVA_OPTS="-Dhttps.proxyHost=bcproxy.ugcorp.com -Dhttps.proxyPort=8080"
 ----
-+
+
 . And finally, you need to have java in your path.  You can set this with the following command:
 +
 ----
