@@ -7,10 +7,6 @@ Student Guide
 Joel Rolfe +
 Senior Field Engineer - Pivotal +
 jrolfe@pivotal.io +
-+
-Bjorn Boe +
-Senior Field Engineer - Pivotal +
-bboe@pivotal.io +
 
 == Schedule
 
