@@ -1,5 +1,5 @@
 :compat-mode:
-= Lab 8 - Exploring the Service Registry
+= Lab 9 - Exploring the Service Registry
 
 [abstract]
 The service registry is a phone book for your microservices. Each service registers itself with the service registry and tells the registry where it lives (host, port, node name) and perhaps other service-specific metadata - things that other services can use to make informed decisions about it.  In this lab, we'll use the Service Registry to bind our two lonely microservices together.
