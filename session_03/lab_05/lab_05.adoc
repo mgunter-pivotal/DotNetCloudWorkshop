@@ -136,7 +136,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
 public class CitiesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(CitiesApplication.class, args);
     }
 }
 ----
