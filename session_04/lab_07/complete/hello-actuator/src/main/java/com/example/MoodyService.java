@@ -14,6 +14,6 @@ public class MoodyService {
 
 	public String getMood() {
 		counterService.increment("counter.services.moody.invoked");
-		return (new Random().nextBoolean() ? "Its a beautiful day" : "I hate everyone");
+		return (new Random().nextBoolean() ? "Its a beautiful day" : "I have seen better days");
 	}
 }
