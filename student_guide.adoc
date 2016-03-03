@@ -5,8 +5,16 @@ Student Guide
 == Instructor Details
 
 Joel Rolfe +
-Senior Field Engineer - Pivotal +
+Senior Platform Architect - Pivotal +
 jrolfe@pivotal.io +
+
+Matt Gunter +
+Senior Platform Architect - Pivotal +
+mgunter@pivotal.io +
+
+Vince Russo +
+Assoc. Platform Architect - Pivotal +
+vrussoiii@pivotal.io +
 
 == Schedule
 
@@ -25,7 +33,7 @@ $ git fetch --all
 ----
 
 === Agenda
-
+8:30 AM - 9:00 AM:: Finish Laptop Setups
 9:00 AM - 10:15 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry_
 10:30 AM - 10:45 AM:: Morning Break
 10:45 AM - 11:15 AM:: *Session 2:* _Buildpacks_
@@ -33,7 +41,7 @@ $ git fetch --all
 12:15 PM - 1:15 PM:: Lunch
 1:15 PM - 1:45 PM:: *Session 4:* _Spring Boot Actuator_
 1:45 PM - 3:30 PM:: *Session 5:* _Spring Cloud Services on Cloud Foundry_
-3:30 PM - 3:45 PM:: Additional Topics / Blue Green Deploy / Debugging / etc
+3:30 PM - 3:45 PM:: Bonus Topics / Blue Green Deploy / Debugging / etc
 
 == Course Materials
 
