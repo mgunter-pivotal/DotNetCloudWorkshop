@@ -9,8 +9,9 @@ https://apps.pcf14.cloud.fe.pivotal.io/tools+
 4. Firefox or Chrome (Not IE)+
 
 
-Smoketest:+
-1. Git clone [] +
+Smoketest:
+
+1. Git clone https://github.com/jrolfe-pivotal/SpringCloudWorkshop.git +
 2. cd SpringCloudWorkshop/session_04/lab_07/complete/hello-actuator+
 3. gradlew.bat assemble+
 4. java -jar build/libs/hello-actuator-0.0.1-SNAPSHOT.jar+
