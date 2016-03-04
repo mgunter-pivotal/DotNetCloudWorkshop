@@ -31,7 +31,7 @@ applications:
   - service-registry
   - config-server
   env:
-    CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
+    CF_TARGET: https://api.pcf14.cloud.fe.pivotal.io
 - name: hello-ui
   host: hello-ui-${random-word}
   path: hello-ui/build/libs/hello-ui-0.0.1-SNAPSHOT.jar
@@ -40,7 +40,7 @@ applications:
   - config-server
   - circuit-breaker     #Add this line
   env:
-    CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
+    CF_TARGET: https://api.pcf14.cloud.fe.pivotal.io
 ----
 +
 . Now let's enable the Circuit Breaker pattern for our UI service.  We want to use a circuit breaker to provide a barrier around failures within the Hello Service.
