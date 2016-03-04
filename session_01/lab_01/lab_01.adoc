@@ -30,7 +30,7 @@ Note that these environment variables only apply to the current command line ses
 . Set the API target for the CLI:
 +
 ----
-$ cf api --skip-ssl-validation https://api.pcf10.cloud.fe.pivotal.io
+$ cf api --skip-ssl-validation https://api.pcf14.cloud.fe.pivotal.io
 ----
 
 . Login to Pivotal Cloud Foundry:
