@@ -138,3 +138,14 @@ image::../../Common/images/cf-scale-boot-unscaled.png[]
 .  Let's try the same scaling from the Apps Manager.  The URL of the apps manager will vary based on the PCF environment you've been assigned, but is always at `api.[pcf-domain]`, e.g. https://apps.pcf5.cloud.fe.pivotal.io
 +
 image::../../Common/images/appsmanager1.png[]
+
+. Click into the `development` space
++
+image::../../Common/images/appsmanager2.png[]
+
+. You'll see the list of applications currently running in this space.  Clicking on the application route will open that application in a new browser window.  In this case, we want to work with the application configuration, so click on the application, anywhere other than the application's route. This will take you to the application's control panel.
++
+image::../../Common/images/appsmanager3.png[]
+
+. Try scaling your application up to 2 instances using the UI.  You'll see that the list of instances is displayed as you do this.
+
