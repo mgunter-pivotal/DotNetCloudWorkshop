@@ -12,10 +12,6 @@ Matt Gunter +
 Senior Platform Architect - Pivotal +
 mgunter@pivotal.io +
 
-Vince Russo +
-Assoc. Platform Architect - Pivotal +
-vrussoiii@pivotal.io +
-
 == Schedule
 
 This is a _loose_ schedule for the day. We will adjust as necessary based on our pace through the material.
@@ -34,14 +30,14 @@ $ git fetch --all
 
 === Agenda
 8:30 AM - 9:00 AM:: Finish Laptop Setups
-9:00 AM - 10:15 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry_
+9:00 AM - 10:30 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry_
 10:30 AM - 10:45 AM:: Morning Break
-10:45 AM - 11:15 AM:: *Session 2:* _Buildpacks_
+10:45 AM - 11:15 AM:: *Session 2:* _Buildpacks and Services_
 11:15 AM - 12:15 PM:: *Session 3:*  _Spring Data on Cloud Foundry_
 12:15 PM - 1:15 PM:: Lunch
-1:15 PM - 1:45 PM:: *Session 4:* _Spring Boot Actuator_
+1:15 PM - 1:45 PM:: *Session 4:* _Spring Boot_
 1:45 PM - 3:30 PM:: *Session 5:* _Spring Cloud Services on Cloud Foundry_
-3:30 PM - 3:45 PM:: Bonus Topics / Blue Green Deploy / Debugging / etc
+3:30 PM - 3:45 PM:: Q&A, Additional Topics / Debugging / etc
 
 == Course Materials
 
