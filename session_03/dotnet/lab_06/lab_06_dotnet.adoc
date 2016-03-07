@@ -36,7 +36,7 @@ Attempting to gather dependencies information for package 'MySql.Data.Entity.6.9
 == Reading the Environment
 . When services, like MySql are bound to applications in Cloud Foundry, the platform will inject information about the services into the VCAP_SERVICES environment variable.  The Java Spring Framework has built in capabilities to read these variables and do Dependency Injection across an application.  This capability is currently being developed for .NET applications as well.  For now, we have to write some code to parse these variables, and then use that information to appropriately set up the Entity Framework.
 +
-Start by adding a new Folder called CloudServices to the BookService project.  Create a new file called VcapServices.cs, and paste the following code into it:
+Start by adding a new Folder called CloudServices to the BookService project.  Create a new class in that folder called `VcapServices.cs`, and paste the following code into it:
 +
 [source,c#]
 ----
@@ -95,7 +95,7 @@ namespace BookService.CloudServices
 +
 This class imply reads the VCAP_SERVICES environment variables, and parses it into an in-memory dictionary for use elsewhere within the application. 
 
-. Now add another file to CloudServices called `EFConfigurer.cs`
+. Now add another class to CloudServices called `EFConfigurer.cs`
 +
 [source,c#]
 ----
