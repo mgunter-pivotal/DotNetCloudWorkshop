@@ -17,7 +17,7 @@ Creating service instance config-server in org student20-org / space development
 OK
 ----
 
-. To finish the PCF configuration, add the circuit breaker service to the manifest.yml for the UI microservice, as we have done for the other SCS services in previous labs.
+. To finish the PCF configuration, add the circuit breaker service to the manifest.yml for the UI microservice, as we have done for the other SCS services in previous labs. Remember to check your values for the CF_TARGET environment variables for both applications.
 +
 ----
 ---
