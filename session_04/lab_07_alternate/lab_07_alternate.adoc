@@ -53,4 +53,8 @@ Now click `Save` to save your build configuration.  This will take you to the co
 
 .  Click on the version independent route and go to the api/colors endpoint, e.g. https://colorservice-yourname/api/colors.  Refresh your browser page several times.  You should notice that you get a _blue_ response about two-thirds of the time.  This is because we have 2 instances of v1 and only 1 instance of v2.  
 +
-This basic process forms the basis of blue-green deployment strategies.  New versions of an application or microservice are deployed alongside the old version.  Traffic is slowly redirected to the new version by scaling the new up and scaling the old down.  Throughout this process, application operators can monitor the behavior of the application, and easily roll back just by unmapping the logical route from version new.
+This basic process forms the basis of blue-green deployment strategies.  New versions of an application or microservice are deployed alongside the old version.  Traffic is slowly redirected to the new version by scaling the new up and scaling the old down.  Throughout this process, application operators can monitor the behavior of the application, and easily roll back just by unmapping the logical route from version new
+
+== Clean up
+
+.  Using the Apps Manager, delete all versions of the ColorService application that you deployed during this lab.
