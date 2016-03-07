@@ -30,7 +30,7 @@ $ git fetch --all
 
 === Agenda
 8:30 AM - 9:00 AM:: Finish Laptop Setups
-9:00 AM - 10:15 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry_
+9:00 AM - 10:30 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry_
 10:30 AM - 10:45 AM:: Morning Break
 10:45 AM - 11:15 AM:: *Session 2:* _Buildpacks and Services_
 11:15 AM - 12:15 PM:: *Session 3:*  _Spring Data on Cloud Foundry_
