@@ -19,3 +19,7 @@ Note: If you do not have a GitHub repository, and do not wish to create an accou
 
 . Create a new _Freestyle project_ called `color-service-build` and then click OK.
 
+. Scroll down to the section labeled _Source Code Management_.  Choose `Git`, and enter the GitHub URL that points to the fork you created earlier.
++
+image::../../../Common/images/jenkins1.png[]
+
