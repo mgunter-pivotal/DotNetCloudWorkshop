@@ -170,11 +170,15 @@ image::../../Common/images/autoscale2.png[]
 image::../../Common/images/autoscale3.png[]
 
 . Now you need to configure how autoscaling will behave.  After creating the autoscaling service, return to the `cf-scale-boot` application dashboard.  Go to the `Services` tab and click the _Manage_ link next to your Autoscaling service.  
++
+image::../../Common/images/autoscale4.png[]
 
 . You will be asked to enable Autoscaling for the `cf-scale-boot` application.  After doing so, configure it with a low threshold so that we can observe the autoscaling.
 +
-image::../../Common/images/autoscale2.png[]
+image::../../Common/images/autoscale5.png[]
 
 . Close the Autoscaler management browser window after making your changes and return to the `cf-scale-boot` application dashboard within the Apps Manager.  Click on the `Events` tab.  
++
+image::../../Common/images/autoscale6.png[]
 
 . There is a method in the cf-scale-boot application that will cause it to start chewing on CPU.  What you are going to do is access this URL and then switch back to the Apps Manager to view the Events tab, and see the autoscaler adding instances (and eventually retiring them when the load goes back to normal.  Access the load method now by opening `cf-scale-boot` in another browser window, and add `/load` to the URL, then hitting enter.  Don't wait for it to finish, just switch back to the Apps Manager and observe the behavior of `cf-scale-boot`
