@@ -1,9 +1,9 @@
 :compat-mode:
 = Lab 5 - Deploy a .NET Application
 
-In this lab we'll take an existing application that uses a SQL Server Express LocalDB configuration and enable it to run in Cloud Foundry while accessing a managed MySQL instance.
+In this lab we'll take an existing .NET 4.5 application that uses a SQL Server Express LocalDB configuration and enable it to run in Cloud Foundry while accessing a managed MySQL instance.
 
-NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/dotnet/lab_05/complete/cities`.
+NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/dotnet/lab_05/complete/BookService`.
 
 == Initializing the Application
 
