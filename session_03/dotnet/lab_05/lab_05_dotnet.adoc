@@ -94,6 +94,8 @@ cf push
 ----
 ["blue"]
 ----
++
+Your application has used the community ASP.NET v5 Cloud Foundry buildpack to run a .NET application inside a windows container.  That container includes the .NET CoreCLR, and because its running in ubuntu trusty, it is leveraging true container primitives for resource and namespace isolation.  You can scale your application up and down, aggregate its logs through the firehose, and know that it will be monitored and managed by PCF just like any other application.
 
 == Clean up
 
