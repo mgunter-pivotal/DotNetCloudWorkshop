@@ -43,7 +43,7 @@ applications:
   - service-registry
   - config-server              # Add the config server here, and below as well
   env:
-    CF_TARGET: https://api.pcf14.cloud.fe.pivotal.io
+    CF_TARGET: https://api.pcf5.cloud.fe.pivotal.io
 - name: hello-ui
   host: hello-ui-${random-word}
   path: hello-ui/build/libs/hello-ui-0.0.1-SNAPSHOT.jar
@@ -51,7 +51,7 @@ applications:
   - service-registry
   - config-server               # Here too
   env:
-    CF_TARGET: https://api.pcf14.cloud.fe.pivotal.io
+    CF_TARGET: https://api.pcf5.cloud.fe.pivotal.io
 ----
 +
 . Now that everything is set up, let's use the config server. Inside of the `hello-server` project, edit the io.pivotal.HelloController class.  The original version hard codes its greeting member variable.  Instead, lets dynamically bind the greeting from our config.  Use the `@Value` annotation to do this:
