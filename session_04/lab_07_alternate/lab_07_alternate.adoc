@@ -1,4 +1,4 @@
-= Alternate Lab 7 - Setting up Continuous Integration with Cloud Foundry
+= Alternate Lab 7 - Strategies for Continuous Delivery - CI tools and Blue/Green Deployments
 
 [abstract]
 --
