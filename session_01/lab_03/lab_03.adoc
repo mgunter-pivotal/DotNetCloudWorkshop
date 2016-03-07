@@ -132,3 +132,9 @@ As you can see, we're back down to only one instance running, and it is in fact 
 . Confirm that by again revisiting the route in the browser and checking the instance index and request counter:
 +
 image::../../Common/images/cf-scale-boot-unscaled.png[]
+
+== Scale from the Apps Manager
+
+.  Let's try the same scaling from the Apps Manager.  The URL of the apps manager will vary based on the PCF environment you've been assigned, but is always at `api.[pcf-domain]`, e.g. https://apps.pcf5.cloud.fe.pivotal.io
++
+image::../../Common/images/appsmanager1.png[]
