@@ -157,7 +157,7 @@ image::../../Common/images/appsmanager3.png[]
 
 . Click on the _Marketplace_ link, found on the left hand side navigational panel.
 
-.  This will take you to the Services Marketplace, where a developer can self-provision various data and applicaiton services on demand.  Your environment will have a few of these services available, but you can add these, remove them, or create your own Service Brokers for internal services that you want to make available in this On Demand way.  Choose the _App Autoscaler_ from the list of options.
+.  This will take you to the Services Marketplace, where a developer can self-provision various data and application services on demand.  Your environment will have a few of these services available, but you can add these, remove them, or create your own Service Brokers for internal services that you want to make available in this On Demand way.  Choose the _App Autoscaler_ from the list of options.
 +
 image::../../Common/images/autoscale1.png[]
 
