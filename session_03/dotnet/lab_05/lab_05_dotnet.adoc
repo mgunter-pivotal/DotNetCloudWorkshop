@@ -32,6 +32,65 @@ PM> Install-Package 'MySql.Data.Entity'
 Attempting to gather dependencies information for package 'MySql.Data.Entity.6.9.8' with respect to project 'BookService', targeting '.NETFramework,Version=v4.5'
 ....
 ----
+== Reading the Environment
+. When services, like MySql are bound to applications in Cloud Foundry, the platform will inject information about the services into the VCAP_SERVICES environment variable.  The Java Spring Framework has built in capabilities to read these variables and do Dependency Injection across an application.  This capability is currently being developed for .NET applications as well.  For now, we have to write some code to parse these variables, and then use that information to appropriately set up the Entity Framework.
++
+Start by adding a new Folder called CloudServices to the BookService project.  Create a new file called VcapServices.cs, and paste the following code into it:
++
+[source,c#]
+----
+using Newtonsoft.Json.Linq;
+using NLog;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace BookService.CloudServices
+{
+    public class VcapServices
+    {
+        private static readonly Logger Nlog = LogManager.GetCurrentClassLogger();
+        private static VcapServices instance;
+        private string rawEnv = null;
+        private JObject parsedEnv = null;
+        private Dictionary<string, JToken> serviceDictionary = null;
+        
+        public static VcapServices Instance()
+        {
+            if (instance == null)
+            {
+                instance = new VcapServices();
+                Nlog.Trace("Checking for VCAP_SERVICES");
+                instance.rawEnv = Environment.GetEnvironmentVariable("VCAP_SERVICES");
+                if (instance.rawEnv != null)
+                {
+                    Nlog.Trace("Parsing VCAP_SERVICES");
+                    instance.parsedEnv = JObject.Parse(instance.rawEnv);
+
+                    Nlog.Trace("Getting services from parsed VCAP_SERVICES");
+                    instance.serviceDictionary =
+                        instance.parsedEnv.Children().Children().Children().ToDictionary(val => val["name"].ToString(), val => val);
+                }
+            }
+            return instance;
+        }
+
+        public bool IsCF
+        {
+            get
+            {
+                return rawEnv != null;
+            }
+        }
+
+        public JToken GetService(string name)
+        {
+            return serviceDictionary[name];
+        }
+    }
+}
+----
 
 
 
