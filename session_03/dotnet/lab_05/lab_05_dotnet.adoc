@@ -14,11 +14,11 @@ NOTE: ASP.NET 5 is not yet GA, and so many of you may not have it installed alre
 
 . Choose the option to create a New ASP.NET Web Application, and name it `ColorService`
 +
-image::../../../Common/net5_1.png[]
+image::../../../images/Common/net5_1.png[]
 
 . Under _ASP.NET 5 Templates_ choose to create a new _Web API_ and click `OK`
 +
-image::../../../Common/net5_2.png[]
+image::../../../images/Common/net5_2.png[]
 
 . There appears to be a bug in the Visual Studio template that causes invalid JSON to be produced within package.json.  Fix this by opening `package.json` and removing the comma at the end of this line:
 +
