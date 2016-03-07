@@ -219,11 +219,11 @@ namespace BookService.CloudServices
 +
 This class decides which connection string to return based on whether a MySql service is bound to the application.  If so, it reads the connection information for the MySql service and constructs an appropriate connection string.
 
-. Finally, inside of `Models\BookServiceContext.cs`, we pass our new connection string binder to the `DbContext` superclass:
+. Finally, inside of `Models\BookServiceContext.cs`, we change two lines of code, which lets us pass our new connection string binder to the `DbContext` superclass:
 +
 [source,c#]
 ----
-using BookService.CloudServices;
+using BookService.CloudServices;   // <---- ADD THIS IMPORT
 using BookService.Migrations;
 using System.Data.Entity;
 
