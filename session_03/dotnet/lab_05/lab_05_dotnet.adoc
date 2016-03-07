@@ -97,7 +97,7 @@ cf push
 
 == Clean up
 
-. We will use this application again, in a later lab, so don't delete your Project locally yet.  However, you can delete the running application instance for now.  We will push it again later.
+. Delete the colorservice application
 +
 [source,bash]
 ----
