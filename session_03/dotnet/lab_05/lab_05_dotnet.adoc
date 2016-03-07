@@ -91,6 +91,163 @@ namespace BookService.CloudServices
     }
 }
 ----
++
+This class imply reads the VCAP_SERVICES environment variables, and parses it into an in-memory dictionary for use elsewhere within the application. 
 
+. Now add another file to CloudServices called `EFConfigurer.cs`
++
+[source,c#]
+----
+using MySql.Data.Entity;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Web;
+
+[assembly: PreApplicationStartMethod(typeof(BookService.CloudServices.EFConfigurer), "Configure")]
+namespace BookService.CloudServices
+{
+    public class EFConfigurer
+    {
+        public static void Configure()
+        {
+            VcapServices vcapServices = VcapServices.Instance();
+            if(vcapServices.IsCF)
+            {
+                JToken service = vcapServices.GetService("BookServiceContext");
+
+                IEnumerator<JToken> tags = service["tags"].Values().GetEnumerator();
+                while(tags.MoveNext())
+                {
+                    if("mysql".Equals(tags.Current.ToString()))
+                    {
+                        DbConfiguration.SetConfiguration(new MySqlEFConfiguration());
+                    }
+                }
+            }
+        }
+    }
+}
+----
++
+This is a bootstrapping class - when we detect that a MySql database has been bound to our application, we will reconfigure the EntityFramework to use MySql.  
+
+. Now add another class to CloudServices called `CFConnectionStringBinder.cs`
++
+[source,c#]
+----
+using BookService.Models;
+using Newtonsoft.Json.Linq;
+using NLog;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+
+namespace BookService.CloudServices
+{
+    public class CFConnectionStringBinder
+    {
+        private static readonly Logger Nlog = LogManager.GetCurrentClassLogger();
+
+        private static Dictionary<string, string> conStringCache = new Dictionary<string, string>();
+
+        public static string Bind(string connectionStringName)
+        {
+            Nlog.Trace(String.Format("Checking for {0} in cached strings", connectionStringName));
+            string conStr = null;
+            if (conStringCache.ContainsKey(connectionStringName)) conStr = conStringCache[connectionStringName];
+            else
+            {
+                conStr = LookupString(connectionStringName);
+                conStringCache[connectionStringName] = conStr;
+            }
+
+            return conStr;
+        }
+
+        private static string LookupString(string connectionStringName)
+        {
+            if( ConfigurationManager.ConnectionStrings[connectionStringName] == null)
+            {
+                Nlog.Error("No connection string found matching given connection string name, returning null...");
+                return null;
+            }
+
+            VcapServices vcap = VcapServices.Instance();
+
+            if (!vcap.IsCF)
+            {
+                Nlog.Info("VCAP_SERVICES not set - returning connection string from app config...");
+                return ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+            }
+
+            Nlog.Trace(String.Format("Checking for {0} in VCAP_SERVICES", connectionStringName));
+            JToken service = vcap.GetService(connectionStringName);
+
+            if (service != null)
+            {
+                Nlog.Trace(String.Format("Found service named {0} in VCAP_SERVICES.  Reconfiguring for bound services.", connectionStringName));
+                JToken creds = service["credentials"];
+                string conString = "";
+                if(creds["connectionString"] != null)
+                {
+                    conString = creds["connectionString"].ToString();
+                }
+                else
+                {
+                    conString = String.Format("server={0};port={1};database={2};uid={3};password={4};",
+                        creds["hostname"],
+                        creds["port"],
+                        creds["name"],
+                        creds["username"],
+                        creds["password"]);
+                }
+                Nlog.Debug(conString);
+                return conString;
+            }
+            else
+            {
+                Nlog.Info("Couldn't find bound service - returning connection string from app config...");
+                return ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+            }
+        }
+    }
+}
+----
++
+This class decides which connection string to return based on whether a MySql service is bound to the application.  If so, it reads the connection information for the MySql service and constructs an appropriate connection string.
+
+. Finally, inside of `Models\BookServiceContext.cs`, we pass our new connection string binder to the `DbContext` superclass:
++
+[source,c#]
+----
+using BookService.CloudServices;
+using BookService.Migrations;
+using System.Data.Entity;
+
+namespace BookService.Models
+{
+    public class BookServiceContext : DbContext
+    {
+        // You can add custom code to this file. Changes will not be overwritten.
+        // 
+        // If you want Entity Framework to drop and regenerate your database
+        // automatically whenever you change your model schema, please use data migrations.
+        // For more information refer to the documentation:
+        // http://msdn.microsoft.com/en-us/data/jj591621.aspx
+    
+        public BookServiceContext() : base(CFConnectionStringBinder.Bind("BookServiceContext"))   // <------ UPDATE THIS LINE
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookServiceContext, Configuration>());
+        }
+
+        public System.Data.Entity.DbSet<BookService.Models.Author> Authors { get; set; }
+
+        public System.Data.Entity.DbSet<BookService.Models.Book> Books { get; set; }
+    
+    }
+}
+----
 
 
