@@ -37,8 +37,7 @@ $ cd $COURSE_HOME/session_01/lab_01/spring-music
 $ gradlew.bat assemble
 ----
 +
-The Gradle Wrapper will automatically download the appropriate version of Gradle for this project along with all of _Spring Music_'s dependencies. This may take a few moments.
-
+The Gradle Wrapper will automatically download the appropriate version of Gradle for this project along with all of _Spring Music_'s dependencies. This may take a few moments.  NOTE: If you are on a linux or mac commandline, you'll use `./gradlew` instead throughout this workshop.
 
 . Push the application!
 +
