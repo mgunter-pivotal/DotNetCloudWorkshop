@@ -20,7 +20,7 @@ image::../../../Common/images/net5_1.png[]
 +
 image::../../../Common/images/net5_2.png[]
 
-. There appears to be a bug in the Visual Studio template that causes invalid JSON to be produced within package.json.  Fix this by opening `package.json` and removing the comma at the end of this line:
+. There appears to be a bug in the Visual Studio template that causes invalid JSON to be produced within package.json.  Fix this by opening `project.json` and removing the comma at the end of this line:
 +
 [source,json]
 ----
