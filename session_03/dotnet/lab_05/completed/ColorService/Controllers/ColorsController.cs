@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
-namespace HelloWorld.Controllers
+namespace ColorService.Controllers
 {
     [Route("api/[controller]")]
     public class ColorsController : Controller
