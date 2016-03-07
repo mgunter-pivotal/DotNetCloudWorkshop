@@ -27,7 +27,7 @@ image::../../Common/images/jenkins1.png[]
 +
 image::../../Common/images/jenkins2.png[]
 
-. Scroll further down to the section labeled _Build Environment_. Check the `Set up Cloud Foundry CLI` option.  Then enter the URL to the api of the environment you're using, e.g. `https://api.pcf14.cloud.fe.pivotal.io`.  Additionally, make sure `Skip ssl validation` is checked.   Chose the `deployer` user that has been pre-configured for you.  Enter the org for your student, e.g. `Student40` and decide which space you would like the build to deploy into.
+. Scroll further down to the section labeled _Build Environment_. Check the `Set up Cloud Foundry CLI` option.  Then enter the URL to the api of the environment you're using, e.g. `https://api.pcf14.cloud.fe.pivotal.io`.  Additionally, make sure `Skip ssl validation` is checked.   Chose the `deployer` user that has been pre-configured for you.  Enter the org for your student, e.g. `student40-org` and decide which space you would like the build to deploy into.
 +
 image::../../Common/images/jenkins3.png[]
 
