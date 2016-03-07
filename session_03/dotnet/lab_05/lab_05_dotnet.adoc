@@ -11,7 +11,7 @@ NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/d
 
 . Verify you can run the application locally by pressing the play button to launch the application.  This will open a browser, pointed to `localhost:[port]`.  From here, test the `api/Books` endpoint:
 +
-image::../../Common/images/booksresponse1.png[]
+image::../../../Common/images/booksresponse1.png[]
 
 . Now we'll use NuGet to configure the necessary MySQL packages for this application.  Open the Package Manager Console by going to `Tools -> NuGet Package Manager -> Package Manager Console`
 +
