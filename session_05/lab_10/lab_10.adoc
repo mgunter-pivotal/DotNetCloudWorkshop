@@ -29,7 +29,7 @@ image::../../Common/images/lab8screenshot2.png[]
 +
 image::../../Common/images/lab8screenshot3.png[]
 +
-. Next, we need to tell Cloud Foundry to bind this service instance to each of our applications.  Open the manifest.yml file and add the config-server service you created to each application.  The result will look like this:
+. Next, we need to tell Cloud Foundry to bind this service instance to each of our applications.  Open the manifest.yml file and add the config-server service you created to each application.  The result will look something like this (but remember, your values for CF_TARGET may be different):
 +
 ----
 ---
