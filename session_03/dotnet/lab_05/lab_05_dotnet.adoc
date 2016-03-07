@@ -14,6 +14,13 @@ NOTE: ASP.NET 5 is not yet GA, and so many of you may not have it installed alre
 
 . Choose the option to create
 
+. There appears to be a bug in the Visual Studio template that causes invalid JSON to be produced within package.json.  Fix this by opening `package.json` and removing the comma at the end of this line:
++
+[source,json]
+----
+"web": "Microsoft.AspNet.Server.Kestrel",
+----
+
 . Create a new controller in the Controllers folder called `ColorsController.cs` with the following code:
 +
 [source,c#]
