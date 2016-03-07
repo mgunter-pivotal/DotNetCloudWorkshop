@@ -165,7 +165,7 @@ image::../../Common/images/autoscale1.png[]
 +
 image::../../Common/images/autoscale2.png[]
 
-. Name the autoscaling service, place it in your `development` space (which is where the `cf-scale-boot` application is deployed), and bind the autoscaling service to `cf-scale-boot`
+. Name the autoscaling service, place it in your `development` space (which is where the `cf-scale-boot` application is deployed), bind the autoscaling service to `cf-scale-boot`, and then click Add.
 +
 image::../../Common/images/autoscale3.png[]
 
