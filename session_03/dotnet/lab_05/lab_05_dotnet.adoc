@@ -250,4 +250,116 @@ namespace BookService.Models
 }
 ----
 
+. Now Publish the application.  Right-click on the _BookService_ project in the Solution Explorer, and choose `Publish...`.  Use the CloudFoundry profile with its defaults to publish the Solution to `C:\temp\bookservice`
 
+. From a command prompt, navigate to the new publish directory:
++
+[source,bash]
+----
+cd C:\temp\bookservice
+----
+
+. We need a MySql service for our application to bind to, and the code we've written expects it to be called `BookServiceContext`, so let's create that:
++
+[source,bash]
+----
+cf create-service p-mysql 100mb-dev BookServiceContext
+Creating service instance BookServiceContext in org student40-org / space development as student40...
+OK
+
+----
+
+. Now, push the application
++
+[source,bash]
+----
+cf push
+
+Using manifest file C:\temp\BookService\manifest.yml
+
+Using stack windows2012R2...
+OK
+Creating app bookservice in org student40-org / space development as student40...
+OK
+
+Using route bookservice.pcf5.cloud.fe.pivotal.io
+Binding bookservice.pcf5.cloud.fe.pivotal.io to bookservice...
+OK
+
+Uploading bookservice...
+Done uploading
+OK
+Binding service BookServiceContext to app bookservice in org student1-org / space development as student1...
+OK
+
+Starting app bookservice in org student1-org / space development as student1...
+Creating container
+Successfully created container
+Downloading app package...
+Downloaded app package (3.9M)
+Staging...
+Exit status 0
+Staging complete
+Uploading droplet, build artifacts cache...
+Uploading droplet...
+Uploading build artifacts cache...
+Uploaded build artifacts cache (37B)
+Uploaded droplet (3.9M)
+Uploading complete
+
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App bookservice was started using this command `..\tmp\lifecycle\WebAppServer.exe`
+
+Showing health and status for app bookservice in org student1-org / space development as student1...
+OK
+
+requested state: started
+instances: 1/1
+usage: 1G x 1 instances
+urls: bookservice12.pcf14.cloud.fe.pivotal.io
+last uploaded: Mon Mar 7 17:33:29 UTC 2016
+stack: windows2012R2
+buildpack: https://github.com/ryandotsmith/null-buildpack.git
+
+     state     since                    cpu    memory       disk          details
+#0   running   2016-03-07 12:34:43 PM   0.0%   311M of 1G   23.3M of 1G
+----
+
+. Now test the application by gettings its route ( `cf apps` ), opening it in a browser, and going to the `api/Books` endpoint.  You'll see the same data being returned as you did locally, except that the data is being provided by MySql now.
+
+== Clean Up
+
+Issue the following commands to delete the cities application and its database.
+
+. Delete the `bookservice` application:
++
+----
+$ cf d bookservice
+
+Really delete the app bookservice?> y
+Deleting app bookservice in org oreilly-class / space instructor as mstine@pivotal.io...
+'OK
+----
+
+. Delete the `BookServiceContext` service:
++
+----
+$ cf ds BookServiceContext
+
+Really delete the service BookServiceContext?> y
+Deleting service BookServiceContext in org oreilly-class / space instructor as mstine@pivotal.io...
+OK
+----
