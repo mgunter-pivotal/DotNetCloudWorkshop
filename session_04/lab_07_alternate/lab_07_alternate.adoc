@@ -41,7 +41,7 @@ cf map-route colorservice-v$BUILD_NUMBER pcf5.cloud.fe.pivotal.io -n colorservic
 +
 Now click `Save` to save your build configuration.  This will take you to the control screen for your color-service-build.  
 
-. From the color-service-build screen, click on `Build Now` from the menu on the left.  This will trigger a build which you can monitor from the lower left hand side.  The build will either turn red (something failed) or green (success).  Once its finished, open the Apps Manager, and navigate to your application.
+. From the color-service-build screen, click on `Build Now` from the menu on the left.  This will trigger a build which you can monitor from the lower left hand side.  The build will either turn red (something failed) or blue (success).  Once its finished, open the Apps Manager, and navigate to your application.
 
 .  From the Apps Manager, click on the newly deployed colorservice-v1 to go into its control panel.  Then click the _Routes_ tab.  Notice that there are two routes defined for this application, `colorservice-yourname-v1` and what we'll call the logical, version independent route, `colorservice-yourname`.  Try clicking on both routes, and going to the api/colors endpoint, e.g. https://colorservice-yourname/api/colors
 
