@@ -173,7 +173,7 @@ image::../../Common/images/autoscale3.png[]
 +
 image::../../Common/images/autoscale4.png[]
 
-. You will be asked to _Turn On_ Autoscaling for the `cf-scale-boot` application.  After doing so, configure it with a low threshold so that we can observe the autoscaling. (Configure these settings by clicking the wrench icon)
+. You will be asked to _Turn On_ Autoscaling for the `cf-scale-boot` application.  After doing so, configure it with the threshold values shown below - we are setting them very low so that we can observe the autoscaling. (Configure these settings by clicking the wrench icon)
 +
 image::../../Common/images/autoscale5.png[]
 
