@@ -28,7 +28,7 @@ And then, install the `MySql.Data.Entity` package
 +
 [source,bash]
 ----
-PM> Install-Package 'MySql.Data.Entity'
+PM> Install-Package MySql.Data.Entity
 Attempting to gather dependencies information for package 'MySql.Data.Entity.6.9.8' with respect to project 'BookService', targeting '.NETFramework,Version=v4.5'
 ....
 ----
