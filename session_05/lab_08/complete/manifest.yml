@@ -18,4 +18,4 @@ applications:
   - config-server
   - circuit-breaker
   env:
-    CF_TARGET: https://api.pcf10.cloud.fe.pivotal.io
+    CF_TARGET: https://api.pcf5.cloud.fe.pivotal.io
