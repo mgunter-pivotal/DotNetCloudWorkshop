@@ -1,6 +1,7 @@
 ---
 applications:
-- name: bookservice-${random-word}
+- name: bookservice
+  host: bookservice-${random-word}
   path: .
   stack: windows2012R2
   buildpack: https://github.com/ryandotsmith/null-buildpack.git
