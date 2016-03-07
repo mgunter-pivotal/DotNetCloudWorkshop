@@ -3,11 +3,11 @@
 
 In this lab we'll take an existing .NET 4.5 application that uses a SQL Server Express LocalDB configuration and enable it to run in Cloud Foundry while accessing a managed MySQL instance.
 
-NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/dotnet/lab_05/complete/BookService`.
+NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/dotnet/lab_06/complete/BookService`.
 
 == Initializing the Application
 
-. Navigate to the lab directory at `$COURSE_HOME/session_03/lab_05/initial/BookService` and then open `BookService.sln` using Visual Studio.
+. Navigate to the lab directory at `$COURSE_HOME/session_03/lab_06/initial/BookService` and then open `BookService.sln` using Visual Studio.
 
 . Verify you can run the application locally by pressing the play button to launch the application.  This will open a browser, pointed to `localhost:[port]`.  From here, test the `api/Books` endpoint:
 +
