@@ -340,6 +340,8 @@ buildpack: https://github.com/ryandotsmith/null-buildpack.git
 ----
 
 . Now test the application by gettings its route ( `cf apps` ), opening it in a browser, and going to the `api/Books` endpoint.  You'll see the same data being returned as you did locally, except that the data is being provided by MySql now.
++
+Unlike the previous application, this application runs inside of a PCF Windows Cell, on top of Windows 2012 RC2. 
 
 == Clean Up
 
