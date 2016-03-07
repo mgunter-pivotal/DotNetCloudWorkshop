@@ -1,0 +1,30 @@
+:compat-mode:
+= Lab 5 - Deploy a .NET Application
+
+In this lab we'll take an existing application that uses a SQL Server Express LocalDB configuration and enable it to run in Cloud Foundry while accessing a managed MySQL instance.
+
+NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/dotnet/lab_05/complete/cities`.
+
+== Initializing the Application
+
+. Navigate to the lab directory at `$COURSE_HOME/session_03/lab_05/initial/BookService` and then open `BookService.sln` using Visual Studio.
+
+. Verify you can run the application locally by pressing the play button to launch the application.  This will open a browser, pointed to `localhost:[port]`.  From here, test the `api/Books` endpoint:
++
+image::../../Common/images/bookresponse1.png[]
+
+. Now we'll use NuGet to configure the necessary MySQL packages for this application.  Open the Package Manager Console by going to `Tools -> NuGet Package Manager -> Package Manager Console`
++
+Now, install the `MySql.Data` and `MySql.Data.Entity` packages:
++
+[source,bash]
+----
+PM> Install-Package MySql.Data
+Attempting to gather dependencies information for package 'MySql.Data.6.9.8' with respect to project 'BookService', targeting '.NETFramework,Version=v4.5'
+...
+...
+PM> Install-Package 'MySql.Data.Entity'
+----
+
+
+
