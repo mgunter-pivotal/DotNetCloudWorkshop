@@ -20,4 +20,4 @@ Smoketest:
 5. browse to http://localhost:8080
 6. cf login -a https://api.pcf14.cloud.fe.pivotal.io --skip-ssl-validation (use student1/carn1valc0rp)
 
-Recommended, but Optional Software : Spring Tool Suite, or IntelliJ IDE
+Recommended, but Optional Software : Eclipse, Spring Tool Suite, or IntelliJ IDE
