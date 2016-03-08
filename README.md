@@ -10,7 +10,6 @@ https://apps.pcf14.cloud.fe.pivotal.io/tools
 
 4. Firefox or Chrome (Not IE)
 
-
 Smoketest:
 
 1. Git clone https://github.com/jrolfe-pivotal/SpringCloudWorkshop.git 
@@ -20,4 +19,10 @@ Smoketest:
 5. browse to http://localhost:8080
 6. cf login -a https://api.pcf14.cloud.fe.pivotal.io --skip-ssl-validation (use student1/carn1valc0rp)
 
-Recommended, but Optional Software : Eclipse, Spring Tool Suite, or IntelliJ IDE
+Optional:
+ 
+1.  A java IDE is strongly recommended.  Eclipse, STS, or IntelliJ will provide the best experience.
+ 
+2.  Visual Studio, if you plan to try any of the .NET content.
+ 
+3.  ASP.NET 5 - at least one of the labs will be done using ASP.NET 5.  A completed version of this lab will be available/usable for those that don't want to install ASP.NET 5, and just want to review/push the code to Cloud Foundry.
