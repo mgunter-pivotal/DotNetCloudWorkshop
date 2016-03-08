@@ -29,15 +29,16 @@ $ git fetch --all
 ----
 
 === Agenda
-8:30 AM - 9:00 AM:: Finish Laptop Setups
-9:00 AM - 10:30 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry_
+8:45 AM - 9:15 AM:: Finish Laptop Setups
+9:15 AM - 10:30 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry_
 10:30 AM - 10:45 AM:: Morning Break
 10:45 AM - 11:15 AM:: *Session 2:* _Buildpacks and Services_
-11:15 AM - 12:15 PM:: *Session 3:*  _Spring Data on Cloud Foundry_
-12:15 PM - 1:15 PM:: Lunch
-1:15 PM - 1:45 PM:: *Session 4:* _Spring Boot_
-1:45 PM - 3:30 PM:: *Session 5:* _Spring Cloud Services on Cloud Foundry_
-3:30 PM - 3:45 PM:: Q&A, Additional Topics / Debugging / etc
+11:15 AM - 12:15 PM:: *Session 3:*  _.NET on Cloud Foundry_, _Spring Data on Cloud Foundry_
+12:15 PM - 1:30 PM:: Lunch
+1:30 PM - 2:15 PM:: *Session 4:* _Spring Boot_
+2:15 PM - 2:30 PM:: Afternoon Break
+2:30 PM - 3:45 PM:: *Session 5:* _Spring Cloud Services on Cloud Foundry_
+3:45 PM - 4:15 PM:: Q&A, Additional Topics / Debugging / etc
 
 == Course Materials
 
@@ -48,10 +49,13 @@ $ git fetch --all
 ** link:session_01/lab_04/lab_04.adoc[Lab 4 - Monitoring Applications]
 * Session 2 (link:session_02/Session_02.pdf[Slides])
 * Session 3 (link:session_03/session_03.pdf[Slides])
-** link:session_03/lab_05/lab_05.adoc[Lab 5 - Build a Hypermedia-Driven RESTful Web Service with Spring Data REST]
-** link:session_03/lab_06/lab_06.adoc[Lab 6 - Leveraging Spring Cloud Connectors for Service Binding]
+** link:session_03/lab_05/lab_05.adoc[Lab 5, Java Track - Build a Hypermedia-Driven RESTful Web Service with Spring Data REST]
+** link:session_03/lab_06/lab_06.adoc[Lab 6, Java Track - Leveraging Spring Cloud Connectors for Service Binding]
+** link:session_03/dotnet/lab_05/lab_05_dotnet.adoc[Lab 5, .NET Track - Deploy an ASP.NET v5 Application]
+** link:session_03/dotnet/lab_06/lab_06_dotnet.adoc[Lab 6, .NET Track - Consuming Data Services within a .NET 4.5 Application]
 * Session 4 (link:session_04/Session_04.pdf[Slides])
-** link:session_04/lab_07/lab_07.adoc[Lab 7 - Introspection, Monitoring, and Metrics using Spring Boot Actuator]
+** link:session_04/lab_07/lab_07.adoc[Lab 7, Java Track - Introspection, Monitoring, and Metrics using Spring Boot Actuator]
+** link:session_04/lab_07_alternate/lab_07_alternate.adoc[Lab7, .NET Track - Strategies for Continuous Delivery - CI tools and Blue/Green Deployments]
 * Session 5 (link:session_05/Session_05.pdf[Slides])
 ** link:session_05/lab_08/lab_08.adoc[Lab 8 - Binding Spring Cloud Services]
 ** link:session_05/lab_09/lab_09.adoc[Lab 9 - Service Registry]
