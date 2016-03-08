@@ -1,5 +1,5 @@
 :compat-mode:
-= Lab 5 - Consuming Data Services within a .NET 4.5 Application
+= Lab 6 - Consuming Data Services within a .NET 4.5 Application
 
 In this lab we'll take an existing .NET 4.5 application that uses a SQL Server Express LocalDB configuration and enable it to run in Cloud Foundry while accessing a managed MySQL instance.
 
