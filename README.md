@@ -3,7 +3,7 @@
 Pre-Requisites:
 
 1. Windows or Mac OSX 
-2. Java JDK 1.7+ 
+2. Java JDK 1.7+ (_Required_, whether or not the .NET labs will be followed)
 3. Install the PCF CLI (download from the link below)
 
 https://apps.pcf14.cloud.fe.pivotal.io/tools 
