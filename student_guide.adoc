@@ -12,6 +12,16 @@ Matt Gunter +
 Senior Platform Architect - Pivotal +
 mgunter@pivotal.io +
 
+== Also From Pivotal
+
+Nicholas Sanfratello
+Senior Platform Architect - Pivotal +
+nsanfratello@pivotal.io
+
+Anthony Barkley
+Account Executive - Pivotal +
+abarkley@pivotal.io
+
 == Schedule
 
 This is a _loose_ schedule for the day. We will adjust as necessary based on our pace through the material.
