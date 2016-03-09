@@ -14,11 +14,11 @@ mgunter@pivotal.io +
 
 == Also From Pivotal
 
-Nicholas Sanfratello
+Nicholas Sanfratello +
 Senior Platform Architect - Pivotal +
 nsanfratello@pivotal.io
 
-Anthony Barkley
+Anthony Barkley +
 Account Executive - Pivotal +
 abarkley@pivotal.io
 
