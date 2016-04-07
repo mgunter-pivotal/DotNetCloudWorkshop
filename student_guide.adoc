@@ -34,7 +34,7 @@ $ git fetch --all
 10:00 AM - 10:15 AM:: Morning Break
 10:15 AM - 10:45 PM:: *Session 2:*  _Intro to .NET on Cloud Foundry Preso_
 10:45 PM - 12:30 PM:: *Session 3:* _PCF + .NET Labs_
-12:30 PM - 1:15 PM:: Lunch & *Session 5:* _ Overview of SteelToe -   MicroService framework for .NET on Cloud Foundry_
+12:30 PM - 1:15 PM:: Lunch & *Session 5:* _Overview of "SteelToe" -   MicroService framework for .NET on Cloud Foundry_
 
 == Course Materials
 
@@ -45,8 +45,8 @@ $ git fetch --all
 ** link:session_01/lab_04/lab_04.adoc[Lab 4 - Monitoring Applications -Metrix/splunk?]
 * Session 2 (link:session_02/Session_02.pdf[Slides])
 * Session 3 (link:session_03/session_03.pdf[Slides])
-** link:session_03/dotnet/lab_05/lab_05_dotnet.adoc[Lab 5, .NET Track - Deploy an ASP.NET v5 Application]
-** link:session_03/dotnet/lab_06/lab_06_dotnet.adoc[Lab 6, .NET Track - Consuming Data Services within a .NET 4.5 Application]
+** link:session_03/dotnet/lab_05/lab_05_dotnet.adoc[Lab 5, .NET Track - Deploy an ASP.NET v5 Application -ColorService]
+** link:session_03/dotnet/lab_06/lab_06_dotnet.adoc[Lab 6, .NET Track - Consuming Data Services within a .NET 4.5 Application -BookService]
 * Session 4 - Optional/homework (link:session_04/Session_04.pdf[Slides])
 ** link:session_04/lab_07_alternate/lab_07_alternate.adoc[Lab 7, .NET Track - Strategies for Continuous Delivery - CI tools and Blue/Green Deployments]
 
