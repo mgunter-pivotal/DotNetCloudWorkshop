@@ -1,5 +1,5 @@
 :compat-mode:
-= Lab 2 - Binding to Cloud Foundry Services
+= Lab 2 - Apps Manager and the Service Marketplace
 
 [abstract]
 --
