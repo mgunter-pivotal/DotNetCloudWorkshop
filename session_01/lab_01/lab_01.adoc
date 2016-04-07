@@ -136,7 +136,7 @@ cf restage uktownsXX
 . Then re-visit the URL to see the sample app showing a list of UK Towns
 
 +
-image::/../../Common/images/UkTowns.JPG[]
+image::/../../Common/images/UkTownsData.JPG[]
 +
 
 
