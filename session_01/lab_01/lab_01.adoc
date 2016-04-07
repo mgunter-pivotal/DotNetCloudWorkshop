@@ -9,13 +9,13 @@
 . Set the API target for the CLI.  Note that your endpoint may be different than the below.  Check with your instructor for the correct value to use throughout today's workshop.  In larger workshops, some may use a different Cloud Foundry instance than others.
 +
 ----
-$ cf api --skip-ssl-validation https://api.pcf7.cloud.fe.pivotal.io
+PCF api Endpoint:  https://api.pcf7.cloud.fe.pivotal.io
 ----
-
++
 . Login to Pivotal Cloud Foundry:
 +
 ----
-$ cf login
+$ cf login -a  https://api.pcf7.cloud.fe.pivotal.io --skip-ssl-validation
 ----
 +
 Follow the prompts, choosing the development space.
@@ -25,61 +25,50 @@ Follow the prompts, choosing the development space.
 
 == Build and Push!
 
-. Change to the _cf-towns-dotnet_ sample application directory:
-+
-----
-$ cd $COURSE_HOME/session_01/lab_01/cf-towns-dotnet
-----
+. Change to the _uk-towns-dotnet_ sample application directory:
 
-. Push the application!
 +
 ----
-cf push uktowns -s windows2012R2 -b binary_buildpack 
-```
-If diego is not enabled by default then you will need to add --no-start to the end of the above command and then run the following
-```
-cf enable-diego uktowns
-cf start uktowns
-```
-Note: this will require the enable-diego CLI plug [available here](https://github.com/cloudfoundry-incubator/diego-enabler)
-
-You can then go to the app URL and you will see a message highlighting that you need to bind a MySQL Service, so go ahead and create and bind the service as follows
-```
-cf create-service service-name plan-name mysqlServiceName
-cf bind-service uktowns mysqlServiceName
-cf restage uktowns
-```
-Then re-visit the URL to see the sample app showing a list of UK Towns
+cd $COURSE_HOME/session_01/lab_01/uk-towns-dotnet
 ----
 +
-You should see output similar to the following listing. Take a look at the listing callouts for a play-by-play of what's happening:
+. Push the application! (replacing XX with your initials or student number)
++
+----
+cf push uktownsXX -s windows2012R2 -b binary_buildpack 
+----
++
+. You should see output similar to the following listing. 
+Take a look at the listing callouts for a play-by-play of what's happening:
 +
 ====
 ----
-C:\Users\Matt\git_projects\cf-towns-dotnet-master>cf push uktowns -s windows2012R2 -b binary_buildpack
+...\uk-towns-dotnet>cf push uktowns02 -s windows2012R2 -b binary_buildpack
 Using stack windows2012R2...
 OK
-Updating app uktowns in org student1-org / space development as student1...
+
+Creating app uktowns02 in org student2-org / space development as student2...<1>
 OK
 
-Uploading uktownsmg...
-Uploading app files from: C:\Users\Matt\git_projects\cf-towns-dotnet-master
-Uploading 33.2K, 12 files
+
+Using route uktowns02.pcf7.cloud.fe.pivotal.io <2>
+Binding uktowns02.pcf7.cloud.fe.pivotal.io to uktowns02...<3>
+OK
+
+
+Uploading uktowns02... <4>
+Uploading app files from: C:\Users\Matt\git_projects\DotNetCloudWorkshop\session_01\lab_01\uk-towns-dotnet
+Uploading 33.5K, 12 files
 Done uploading
 OK
 
-Stopping app uktowns in org student1-org / space development as student1...
-OK
-
-Starting app uktowns in org student1-org / space development as student1...
+Starting app uktowns02 in org student2-org / space development as student2...<5>
 Downloading binary_buildpack...
 Downloaded binary_buildpack
 Creating container
 Successfully created container
 Downloading app package...
 Downloaded app package (373.5K)
-Downloading build artifacts cache...
-Downloaded build artifacts cache (37B)
 Staging...
 Exit status 0
 Staging complete
@@ -87,10 +76,9 @@ Uploading droplet, build artifacts cache...
 Uploading droplet...
 Uploading build artifacts cache...
 Uploaded build artifacts cache (37B)
-Uploaded droplet (367.7K)
+Uploaded droplet (367.7K) 
 Uploading complete
 
-0 of 1 instances running, 1 starting
 1 of 1 instances running
 
 App started
@@ -98,39 +86,57 @@ App started
 
 OK
 
-App uktownsmg was started using this command `..\tmp\lifecycle\WebAppServer.exe`
+App uktowns02 was started using this command `..\tmp\lifecycle\WebAppServer.exe`<6>
 
-Showing health and status for app uktowns in org student1-org / space development as student1...
+Showing health and status for app uktowns02 in org student2-org / space development as student2... <7>
 OK
 
 requested state: started
 instances: 1/1
 usage: 1G x 1 instances
-urls: uktowns.pcf7.cloud.fe.pivotal.io
-last uploaded: Thu Apr 7 16:01:49 UTC 2016
+urls: uktowns02.pcf7.cloud.fe.pivotal.io
+last uploaded: Thu Apr 7 21:52:12 UTC 2016
 stack: unknown
 buildpack: binary_buildpack
 
-     state     since                    cpu    memory        disk          details
-#0   running   2016-04-07 12:02:32 PM   0.0%   66.2M of 1G   1010K of 1G
+     state     since                    cpu    memory    disk      details
+#0   running   2016-04-07 05:52:52 PM   0.0%   0 of 1G   0 of 1G
 
-[fix  below ]
 ----
-<1> The CLI is using a manifest to provide necessary configuration details such as application name, memory to be allocated, and path to the application artifact.
-Take a look at `manifest.yml` to see how.
-<2> In most cases, the CLI indicates each Cloud Foundry API call as it happens.
-In this case, the CLI has created an application record for _uktowns_ in your assigned space.
-<3> All HTTP/HTTPS requests to applications will flow through Cloud Foundry's front-end router called http://docs.cloudfoundry.org/concepts/architecture/router.html[(Go)Router].
-Here the CLI is creating a route with random word tokens inserted (again, see `manifest.yml` for a hint!) to prevent route collisions across the default `pcf7.cloud.fe.pivotal.io` domain.
-<4> Now the CLI is _binding_ the created route to the application.
-Routes can actually be bound to multiple applications to support techniques such as http://www.mattstine.com/2013/07/10/blue-green-deployments-on-cloudfoundry[blue-green deployments].
-<5> The CLI finally uploads the application bits to PWS. Notice that it's uploading _90 files_! This is because Cloud Foundry actually explodes a ZIP artifact before uploading it for caching purposes.
-<6> Now we begin the staging process. The https://github.com/cloudfoundry/java-buildpack[Java Buildpack] is responsible for assembling the runtime components necessary to run the application.
-<7> The CLI tells you exactly what command and argument set was used to start your application.
-<8> Finally the CLI reports the current status of your application's health.
-You can get the same output at any time by typing `cf app uktownsmg`.
-====
 
+<1> In most cases, the CLI indicates each Cloud Foundry API call as it happens.
+In this case, the CLI has created an application record for _uktowns_ in your assigned space.
+<2> All HTTP/HTTPS requests to applications will flow through Cloud Foundry's front-end router called http://docs.cloudfoundry.org/concepts/architecture/router.html[(Go)Router].
+Here the CLI is creating a route with the name of the app.  To prevent route collisions across the default `pcf7.cloud.fe.pivotal.io` domain, the same route cannot be used by two apps. Ask your instructor about techniques to avoid collisions. Hint: this will be covered later.
+<3> Now the CLI is _binding_ the created route to the application.
+Routes can actually be bound to multiple applications to support techniques such as http://www.mattstine.com/2013/07/10/blue-green-deployments-on-cloudfoundry[blue-green deployments].
+<4> The CLI finally uploads the application bits to PCF. Notice that it's uploading _90 files_! This is because Cloud Foundry actually explodes a ZIP artifact before uploading it for caching purposes.
+<5> Now we begin the staging process. In General, Buildpacks are responsible for assembling the runtime components necessary to run the application.
+<6> The CLI tells you exactly what command and argument set was used to start your application.
+<7> Finally the CLI reports the current status of your application's health.
+You can get the same output at any time by typing `cf app uktownsXX`.
+====
++
 . Visit the application in your browser by hitting the route that was generated by the CLI.  You can find the route by typing `cf apps`, and it will look something like `http://uktowns.pcf7.cloud.fe.pivotal.io`
+
+. You will see a message highlighting that you need to bind a MySQL Service, so go ahead and create and bind the service as follows
+
++
+image::/../../Common/images/UkTownsNoMysql.JPG[]
++
+
++
+```
+cf create-service service-name plan-name mysqlServiceName
+cf bind-service uktownsXX mysqlServiceName
+cf restage uktownsXX
+```
++
+
+. Then re-visit the URL to see the sample app showing a list of UK Towns
+
++
+image::/../../Common/images/UkTowns.JPG[]
++
 
 
