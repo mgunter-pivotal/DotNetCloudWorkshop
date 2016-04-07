@@ -122,7 +122,7 @@ You can get the same output at any time by typing `cf app uktownsXX`.
 You will see a message highlighting that you need to bind a MySQL Service, so go ahead and create and bind the service as follows
 ...
 +
-image::/../../Common/images/UkTownsNoMysql.jpg[]
+image::/../../Common/images/UkTownsNoMysql.JPG[]
 +
 ```
 cf create-service service-name plan-name mysqlServiceName
@@ -132,7 +132,7 @@ cf restage uktownsXX
 Then re-visit the URL to see the sample app showing a list of UK Towns
 ----
 +
-image::/../../Common/images/UkTowns.jpg[]
+image::/../../Common/images/UkTowns.JPG[]
 +
 
 
