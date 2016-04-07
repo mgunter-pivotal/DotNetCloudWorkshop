@@ -34,7 +34,7 @@ $ git fetch --all
 10:00 AM - 10:15 AM:: Morning Break
 10:15 AM - 10:45 PM:: *Session 2:*  _Intro to .NET on Cloud Foundry Preso_
 10:45 PM - 12:30 PM:: *Session 3:* _PCF + .NET Labs_
-12:30 PM - 1:15 PM:: Lunch & *Session 5:* _Overview of "SteelToe" -   MicroService framework for .NET on Cloud Foundry_
+12:30 PM - 1:15 PM:: Lunch & *Session 4:* _Overview of "SteelToe" -   MicroService framework for .NET on Cloud Foundry_
 
 == Course Materials
 
