@@ -38,16 +38,31 @@ Then Navigate to the correct org and space to view your list of applications (Hi
 image::/../../Common/images/DevSpace.JPG[]
 +
 Click on the application to go to the Application Detail Page
-From this page find the following details:
 +
 image::/../../Common/images/ukTowns.JPG[]
 +
-ReStart/Stop:: The Start, ReStart and Stop buttons allow full control over your app's availability.
-View Bound Services:: Within the Services Tab, the bound services are listed along with management options. In addition, you have the option of provisioning a new service from the Marketplace. (We will do this down below)
-Review Recent Logs:: The Logs tab presents the recent log messages. It is also possible to "tail" the logs via the browser from here.
-Add a User-Defined environment variable:: The Environment Variables tab displays the environment information. Environment variables are used heavily to provide metadata information to applications running on Cloud Foundry. This is one characteristic of being "Cloud-Native" since apps shouldn't own their own dependency configuration information. In addition, users have the ability to view and add their own user-provided environment variables here.
-Review Configuration and Status:: Each application can scale to multiple instances (we will do this in another lab) and can consume varying amounts of memory and disk. How much Memory and CPU is your appliction using? Can you reduce the memory footprint to 256MB?
+From this page find the following details:
 +
+ReStart/Stop:: 
++
+The Start, ReStart and Stop buttons allow full control over your app's availability.
++
++
+View Bound Services:: 
++
+Within the _Services Tab_, the bound services are listed along with management options. In addition, you have the option of provisioning a new service from the Marketplace. (We will do this down below)
++
+Review Recent Logs::
++
+The _Logs Tab_ presents the recent log messages. It is also possible to "tail" the logs via the browser from here.
++
+Add a User-Defined environment variable:: 
++
+The _Environment Variables Tab_ displays the environment information. Environment variables are used heavily to provide metadata information to applications running on Cloud Foundry. This is one characteristic of being "Cloud-Native" since apps shouldn't own their own dependency configuration information. In addition, users have the ability to view and add their own user-provided environment variables here.
++
+Review Configuration and Status::
++
+Each application can scale to multiple instances (we will do this in another lab) and can consume varying amounts of memory and disk. How much Memory and CPU is your appliction using? Can you reduce the memory footprint to 256MB?
 +
 . Working with Services
 +
