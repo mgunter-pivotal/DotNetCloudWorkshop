@@ -27,7 +27,6 @@ The _uktowns_ application is a basic example of how _.net apps_ can be "pushed t
 +
 The Apps Manager Provides a very user friendly view of the details of your application.
 +
-+
 image::/../../Common/images/Login.JPG[]
 +
 Login to Apps manager with your student information. 
