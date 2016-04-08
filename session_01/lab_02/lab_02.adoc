@@ -102,25 +102,25 @@ image::/../../Common/images/PWS_Marketplace.png[]
 From the CLI, let's _create_ a developer instance:
 +
 ----
-$ cf create-service p-mysql 100mb-dev spring-music-db
-Creating service spring-music-db in org oreilly-class / space instructor as mstine@pivotal.io...
+$ cf create-service p-mysql 100mb-dev mysqlService2
+Creating service instance mysqlService2 in org student2-org / space development as student2...
 OK
 ----
 +
-. Next we'll _bind_ the newly created instance to our `spring-music` application:
+. Next we'll _bind_ the newly created instance to our existing `uktownsXX` application:
 +
 ----
-$ cf bind-service spring-music spring-music-db
-Binding service spring-music-db to app spring-music in org oreilly-class / space instructor as mstine@pivotal.io...
+$ cf bind-service uktowns02 mysqlService2
+Binding service mysqlService2 to app uktowns02 in org student2-org / space development as student2...
 OK
-TIP: Use 'cf restage' to ensure your env variable changes take effect
+TIP: Use 'cf restage uktowns02' to ensure your env variable changes take effect
 ----
 
 . Notice the admonition to `Use 'cf restage' to ensure your env variable changes take effect`.
 Let's take a look at the environment variables for our application to see what's been done. We can do this by typing:
 +
 ----
-$ cf env spring-music
+$ cf env uktownsXX
 ----
 +
 The subset of the output we're interested in is located near the very top, titled `System-Provided`:
@@ -157,7 +157,7 @@ System-Provided:
 <2> Notice here the unique URI for this instance of MySQL that `spring-music` has been bound to.
 ====
 
-. Now let's _restage_ the application, which cycles our application back through the staging/buildpack process before redeploying the application.footnote:[In this case, we could accomplish the same goal by only _restarting_ the application via `cf restart spring-music`.
+. Now let's _restage_ the application, which cycles our application back through the staging/buildpack process before redeploying the application.footnote:[In this case, we could accomplish the same goal by only _restarting_ the application via `cf restart uktownsXX`.
 A _restage_ is generally recommended because Cloud Foundry buildpacks also have access to injected environment variables and can install or configure things differently based on their values.]
 +
 ----
