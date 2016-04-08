@@ -127,8 +127,8 @@ image::/../../Common/images/UkTownsNoMysql.JPG[]
 
 +
 ```
-cf create-service service-name plan-name mysqlServiceName
-cf bind-service uktownsXX mysqlServiceName
+cf create-service p-mysql 100mb-dev mysqlService
+cf bind-service uktownsXX mysqlService
 cf restage uktownsXX
 ```
 +
