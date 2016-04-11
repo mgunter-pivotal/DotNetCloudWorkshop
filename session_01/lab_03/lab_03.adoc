@@ -4,18 +4,18 @@
 --
 Cloud Foundry makes the work of horizontally scaling application instances and updating load balancer routing tables easy.
 
-In this lab, we'll use a Spring Boot CLI app designed to illustrate Cloud Foundry operations such as scaling.
+In this lab, we'll use a simple .NET app designed to illustrate Cloud Foundry operations such as scaling.
 --
 
-== Push the `cf-scale-boot` Application
+== Push the `cf-scale-dotnet` Application
 
-. Change to the `cf-scale-boot` sample application directory:
+. Change to the `cf-scale-dotnet/publish`  directory:
 +
 ----
-$ cd $COURSE_HOME/session_01/lab_03/cf-scale-boot
+$ cd $COURSE_HOME/session_01/lab_03/cf-scale-dotnet
 ----
 
-. Spring Boot CLI applications do not require a separate build step, so go ahead and push the application:
+. This directory was "published" from Visual Studio. Published .NET applications are ready to run (no add'l build step required.)  So go ahead and push the application:
 +
 ----
 $ cf push
@@ -25,7 +25,7 @@ $ cf push
 that an application's routes can be seen by using `cf apps` or by examining the application from the Apps Manager UI.
 So, when the CLI indicates that application is up and running, visit its route in the browser:
 +
-image::../../Common/images/cf-scale-boot-initial.png[]
+image::../../Common/images/cf-scale-dotnet-initial.png[]
 +
 You'll see that the application is reporting various bits of information that it has discovered from its environment.
 Of primary interest is that this application reports its _instance index_.
@@ -36,8 +36,8 @@ It also keeps track of and reports how many web requests that this instance has 
 . Now let's increase the number of running application instances to 5:
 +
 ----
-$ cf scale -i 5 cf-scale-boot
-Scaling app cf-scale-boot in org oreilly-class / space instructor as mstine@pivotal.io...
+$ cf scale -i 5 cf-scale-dotnet
+Scaling app cf-scale-dotnet in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 ----
 +
@@ -47,14 +47,14 @@ In reporting `OK`, the CLI is letting you know that the additional requested ins
 +
 ====
 ----
-$ cf app cf-scale-boot
-Showing health and status for app cf-scale-boot in org oreilly-class / space instructor as mstine@pivotal.io...
+$ cf app cf-scale-dotnet
+Showing health and status for app cf-scale-dotnet in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 
 requested state: started
 instances: 5/5
 usage: 512M x 5 instances
-urls: cf-scale-boot-stockinged-rust.cfapps.io
+urls: cf-scale-dotnet-stockinged-rust.cfapps.io
 last uploaded: Fri Feb 13 18:56:29 UTC 2015
 
      state      since                    cpu    memory           disk
@@ -71,14 +71,14 @@ last uploaded: Fri Feb 13 18:56:29 UTC 2015
 . Eventually all instances will converge to a running state:
 +
 ----
-$ cf app cf-scale-boot
-Showing health and status for app cf-scale-boot in org oreilly-class / space instructor as mstine@pivotal.io...
+$ cf app cf-scale-dotnet
+Showing health and status for app cf-scale-dotnet in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 
 requested state: started
 instances: 5/5
 usage: 512M x 5 instances
-urls: cf-scale-boot-stockinged-rust.cfapps.io
+urls: cf-scale-dotnet-stockinged-rust.cfapps.io
 last uploaded: Fri Feb 13 18:56:29 UTC 2015
 
      state     since                    cpu    memory           disk
@@ -93,7 +93,7 @@ last uploaded: Fri Feb 13 18:56:29 UTC 2015
 Refresh several times.
 You should observe the instance index and request counters changing as you do so:
 +
-image::../../Common/images/cf-scale-boot-scaled.png[]
+image::../../Common/images/cf-scale-dotnet-scaled.png[]
 +
 The aforementioned http://docs.cloudfoundry.org/concepts/architecture/router.html[(Go)Router] is applying a random routing algorithm to all of the application instances assigned to this route.
 As an instance reaches the `running` state, its http://docs.cloudfoundry.org/concepts/architecture/execution-agent.html[DEA] registers that instance in the routing table assigned to its route by sending a message to Cloud Foundry's message bus.
@@ -105,22 +105,22 @@ This makes for very dynamic and rapid reconfiguration!
 . We can scale the application instances back down as easily as we scaled them up, using the same command structure:
 +
 ----
-$ cf scale -i 1 cf-scale-boot
-Scaling app cf-scale-boot in org oreilly-class / space instructor as mstine@pivotal.io...
+$ cf scale -i 1 cf-scale-dotnet
+Scaling app cf-scale-dotnet in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 ----
 
 . Check the application status again:
 +
 ----
-$ cf app cf-scale-boot
-Showing health and status for app cf-scale-boot in org oreilly-class / space instructor as mstine@pivotal.io...
+$ cf app cf-scale-dotnet
+Showing health and status for app cf-scale-dotnet in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 
 requested state: started
 instances: 1/1
 usage: 512M x 1 instances
-urls: cf-scale-boot-stockinged-rust.cfapps.io
+urls: cf-scale-dotnet-stockinged-rust.cfapps.io
 last uploaded: Fri Feb 13 18:56:29 UTC 2015
 
      state     since                    cpu    memory         disk
@@ -131,7 +131,7 @@ As you can see, we're back down to only one instance running, and it is in fact 
 
 . Confirm that by again revisiting the route in the browser and checking the instance index and request counter:
 +
-image::../../Common/images/cf-scale-boot-unscaled.png[]
+image::../../Common/images/cf-scale-dotnet-unscaled.png[]
 
 == Scale from the Apps Manager
 
@@ -165,20 +165,20 @@ image::../../Common/images/autoscale1.png[]
 +
 image::../../Common/images/autoscale2.png[]
 
-. Name the autoscaling service, place it in your `development` space (which is where the `cf-scale-boot` application is deployed), bind the autoscaling service to `cf-scale-boot`, and then click Add.
+. Name the autoscaling service, place it in your `development` space (which is where the `cf-scale-dotnet` application is deployed), bind the autoscaling service to `cf-scale-dotnet`, and then click Add.
 +
 image::../../Common/images/autoscale3.png[]
 
-. Now you need to configure how autoscaling will behave.  After creating the autoscaling service, return to the `cf-scale-boot` application dashboard.  Go to the `Services` tab and click the _Manage_ link next to your Autoscaling service.  
+. Now you need to configure how autoscaling will behave.  After creating the autoscaling service, return to the `cf-scale-dotnet` application dashboard.  Go to the `Services` tab and click the _Manage_ link next to your Autoscaling service.  
 +
 image::../../Common/images/autoscale4.png[]
 
-. You will be asked to _Turn On_ Autoscaling for the `cf-scale-boot` application.  After doing so, configure it with the threshold values shown below - we are setting them very low so that we can observe the autoscaling. (Configure these settings by clicking the wrench icon)
+. You will be asked to _Turn On_ Autoscaling for the `cf-scale-dotnet` application.  After doing so, configure it with the threshold values shown below - we are setting them very low so that we can observe the autoscaling. (Configure these settings by clicking the wrench icon)
 +
 image::../../Common/images/autoscale5.png[]
 
-. Close the Autoscaler management browser window after making your changes and return to the `cf-scale-boot` application dashboard within the Apps Manager.  Click on the `Events` tab.  
+. Close the Autoscaler management browser window after making your changes and return to the `cf-scale-dotnet` application dashboard within the Apps Manager.  Click on the `Events` tab.  
 +
 image::../../Common/images/autoscale6.png[]
 
-. There is a method in the cf-scale-boot application that will cause it to start chewing on CPU.  What you are going to do is access this URL and then switch back to the Apps Manager to view the Events tab, and see the autoscaler adding instances (and eventually retiring them when the load goes back to normal.  Access the load method now by opening `cf-scale-boot` in another browser window, and add `/load` to the URL, then hitting enter.  Don't wait for it to finish, just switch back to the Apps Manager and observe the behavior of `cf-scale-boot`
+. There is a method in the cf-scale-dotnet application that will cause it to start chewing on CPU.  What you are going to do is access this URL and then switch back to the Apps Manager to view the Events tab, and see the autoscaler adding instances (and eventually retiring them when the load goes back to normal.  Access the load method now by opening `cf-scale-dotnet` in another browser window, and add `/load` to the URL, then hitting enter.  Don't wait for it to finish, just switch back to the Apps Manager and observe the behavior of `cf-scale-dotnet`
