@@ -1,0 +1,8 @@
+---
+applications:
+- name: cf-scale-dotnet
+  memory: 512M
+  instances: 1
+  host: cf-scale-dotnet-${random-word}
+  stack: windows2012R2
+  buildpack: binary_buildpack
