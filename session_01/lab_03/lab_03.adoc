@@ -9,13 +9,13 @@ In this lab, we'll use a simple .NET app designed to illustrate Cloud Foundry op
 
 == Push the `cf-scale-dotnet` Application
 
-. Change to the `cf-scale-dotnet` sample application directory:
+. Change to the `cf-scale-dotnet/publish`  directory:
 +
 ----
 $ cd $COURSE_HOME/session_01/lab_03/cf-scale-dotnet
 ----
 
-. This directory was "published" from Visual Studio. Published .NET applications are ready to run (no build step required.)  So go ahead and push the application:
+. This directory was "published" from Visual Studio. Published .NET applications are ready to run (no add'l build step required.)  So go ahead and push the application:
 +
 ----
 $ cf push
