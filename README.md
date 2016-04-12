@@ -2,9 +2,8 @@
 
 Pre-Requisites:
 
-1. Windows
-2. Install the PCF CLI (from: https://apps.pcf7.cloud.fe.pivotal.io/tools )
-3. Firefox or Chrome (Not IE)
+1. Install the PCF CLI (from: https://apps.pcf7.cloud.fe.pivotal.io/tools )
+2. Firefox or Chrome is preferred
 
 Optional (but recommended):
 
