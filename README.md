@@ -3,10 +3,7 @@
 Pre-Requisites:
 
 1. Windows
-2. Install the PCF CLI (download from the link below)
-+
-===https://apps.pcf7.cloud.fe.pivotal.io/tools 
-+
+2. Install the PCF CLI (from: https://apps.pcf7.cloud.fe.pivotal.io/tools )
 4. Firefox or Chrome (Not IE)
 
 Smoketest:
