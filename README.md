@@ -9,7 +9,6 @@ Pre-Requisites:
 Smoketest:
 
 1. Git clone (or download and unzip from Git) https://github.com/mgunter-pivotal/DotNetCloudWorkshop.git 
-[fix below]
 2. cd DotNetCloudWorkshop/session_01/lab_01/uk-towns-dotnet
 3. cf push uktowns -s windows2012R2 -b binary_buildpack 
 4. cf enable-diego uktowns
