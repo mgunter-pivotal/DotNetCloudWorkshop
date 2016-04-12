@@ -13,7 +13,7 @@ Optional (but recommended):
 Smoketest:
 
 1. Git clone (or download and unzip from Git) https://github.com/mgunter-pivotal/DotNetCloudWorkshop.git 
-2. cd DotNetCloudWorkshop/session_01/lab_01/uk-towns-dotnet
+2. cd session_01/lab_01/uk-towns-dotnet
 3. cf login -a https://api.pcf7.cloud.fe.pivotal.io --skip-ssl-validation (e.g. student1/w0rk5h0p)
 4. select student1-org and development space
 4. cf push uktowns -s windows2012R2 -b binary_buildpack 
