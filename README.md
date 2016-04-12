@@ -4,7 +4,12 @@ Pre-Requisites:
 
 1. Windows
 2. Install the PCF CLI (from: https://apps.pcf7.cloud.fe.pivotal.io/tools )
-4. Firefox or Chrome (Not IE)
+3. Firefox or Chrome (Not IE)
+
+Optional (but recommended):
+
+ 1.  ASP.NET 5 - at least one of the labs will be done using ASP.NET 5.  A completed version of this lab will be available/usable for those that don't want to install ASP.NET 5, and just want to review/push the code to Cloud Foundry.
+ 2.  Visual Studio 2015 (All labs are "pre-published", but most students will want to follow along as we walk through some of the code)
 
 Smoketest:
 
@@ -23,7 +28,3 @@ Console output:
 ----
 ====
 
-Optional:
-
- 1.  ASP.NET 5 - at least one of the labs will be done using ASP.NET 5.  A completed version of this lab will be available/usable for those that don't want to install ASP.NET 5, and just want to review/push the code to Cloud Foundry.
- 2.  Visual Studio 2015 (All labs are "pre-published", but most students will want to follow along as we walk through some of the code)
