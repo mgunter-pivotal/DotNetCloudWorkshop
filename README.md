@@ -18,7 +18,7 @@ Smoketest:
 ====
 
      state     since                    cpu    memory    disk      details
-#0   running   2016-04-07 05:52:52 PM   0.0%   0 of 1G   0 of 1G
+0   running   2016-04-07 05:52:52 PM   0.0%   0 of 1G   0 of 1G
 
 ====
 Optional:
