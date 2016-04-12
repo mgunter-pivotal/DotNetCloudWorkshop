@@ -16,9 +16,7 @@ Smoketest:
 2. cd session_01/lab_01/uk-towns-dotnet
 3. cf login -a https://api.pcf7.cloud.fe.pivotal.io --skip-ssl-validation (e.g. student1/w0rk5h0p)
 4. select student1-org and development space
-4. cf push uktowns -s windows2012R2 -b binary_buildpack 
-5. cf enable-diego uktowns
-6. cf start uktowns (you should see the output below)
+5. cf push uktowns -s windows2012R2 -b binary_buildpack  (verify final lines of console output matches the example below)
 
 Console output:
 ====
