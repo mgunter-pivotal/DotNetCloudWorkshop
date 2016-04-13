@@ -46,7 +46,7 @@ _Overview of "SteelToe" -   MicroService framework for .NET on Cloud Foundry_
 ** link:session_01/lab_02/lab_02.adoc[Lab 2 - Binding to Cloud Foundry Services -uktowns]
 ** link:session_01/lab_03/lab_03.adoc[Lab 3 - Scaling Applications -cf-scale-dotnet]
 ** link:session_01/lab_04/lab_04.adoc[Lab 4 - Monitoring Applications -Events & Logs]
-* Session 2 -How Does PCF support Windows? (link:session_02/Session_02.pdf[Slides])
+* Session 2 -How Does PCF support .Net? (link:session_02/Session_02.pdf[Slides])
 * Session 3 -Micro-service Frameworks & "SteelToe" project (link:session_03/session_03.pdf[Slides])
 ** link:session_03/lab_05/lab_05_dotnet.adoc[Lab 5,  (Optional) Deploy an ASP.NET v5 Application -ColorService]
 ** link:session_03/lab_06/lab_06_dotnet.adoc[Lab 6, Consuming Data Services within a .NET 4.5 Application -BookService]
