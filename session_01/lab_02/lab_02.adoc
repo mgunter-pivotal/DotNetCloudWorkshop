@@ -22,9 +22,11 @@ Login to Apps manager with your student information.
 +
 image::/../../Common/images/Login.JPG[]
 +
+Then Navigate to the default org
++
 image::/../../Common/images/OrgSpace.JPG[]
 +
-Then Navigate to the correct org and space to view your list of applications (Hint: you may only have 1 application).
+... and space to view your list of applications (Hint: you may only have 1 application).
 +
 image::/../../Common/images/DevSpace.JPG[]
 +
@@ -74,7 +76,7 @@ Bind/Unbind:: These operations create or delete unique credential sets for an ex
 . The Services Marketplace
 +
 There are two ways to discover what services are available on Pivotal Cloud Foundry.
-The first is available on any instance of Cloud Foundry: the CLI. Just type:
+A)One way is to use the CLI. Just type:
 +
 ----
 $ cf marketplace
@@ -82,8 +84,7 @@ $ cf marketplace
 +
 and you'll get a list of services, their available plans, and descriptions.
 +
-The second way is specific to Pivotal Cloud Foundry's Application Manager UI.
-If you haven't already, login to it by visiting https://apps.pcf7.cloud.fe.pivotal.io
+B)The second way is specific to Pivotal Cloud Foundry's Application Manager UI.
 +
 Click on the ``Marketplace'' link:
 +
@@ -96,7 +97,10 @@ image::/../../Common/images/PWS_Marketplace.png[]
 == Creating and Binding to a Service Instance
 
 . Let's begin by creating a MySQL instance.
-From the CLI, let's _create_ a developer instance:
+Below are instructions based on the CLI. If you prefer a graphical approach, then use Apps Manager to graphically create and bind a MySQL service to your uktowns app. After going to the Marketplace you can then selecting your desired service, create an instance of it, and bind it to your uktowns application.
+
+==CLI instructions
+let's _create_ a developer instance:
 +
 ----
 $ cf create-service p-mysql 100mb-dev mysqlService2
@@ -181,7 +185,14 @@ image::/../../Common/images/UkTownsData.JPG[]
 +
 As you can see from the information dialog, the application is now utilizing a MySQL database via the `mysqlService` service.
 +
-Note that you can do all of this from the Application Manager UI as well, by going to the Marketplace mentioned above, selecting your desired service, creating an instance of it, and binding it to your spring-music application.
+Note that you can do all of this from either the CLI or the Application Manager UI.
+== Review the code
+
+Open the uktowns up in Visual Studio as a website (DotNetCloudWorkshop\session_01\lab_01\uk-towns-dotnet)
+Note that 
+A. This is a simple application without any special libraries to support PCF.
+B. The connection information is retrieved from the VCAP_SERVICES environment variable.
+C. The Actual DB connection and Binding code is not PCF-specific.
 
 == Clean Up
 
