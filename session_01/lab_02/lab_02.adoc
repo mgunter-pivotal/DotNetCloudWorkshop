@@ -192,17 +192,15 @@ Open the uktowns up in Visual Studio as a website (DotNetCloudWorkshop\session_0
 Note that 
 A. This is a simple application without any special libraries to support PCF.
 B. The connection information is retrieved from the VCAP_SERVICES environment variable.
-+
 ----
 image::/../../Common/images/uktowns_vcap_services..JPG
 ----
-+
+
 C. The Actual DB connection and Binding code is not PCF-specific.
-+
 ----
 image::/../../Common/images/uktowns_call_db..JPG
 ----
-+
+
 == Clean Up
 
 Since we're done using the uktownsXX application, let's clean up our application and services to make room for future labs.
