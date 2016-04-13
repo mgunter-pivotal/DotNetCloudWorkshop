@@ -22,11 +22,11 @@ Login to Apps manager with your student information.
 +
 image::/../../Common/images/Login.JPG[]
 +
-Then Navigate to the default org
+Then Navigate to the default org...
 +
 image::/../../Common/images/OrgSpace.JPG[]
 +
-... and space to view your list of applications (Hint: you may only have 1 application).
+and space to view your list of applications (Hint: you may only have 1 application).
 +
 image::/../../Common/images/DevSpace.JPG[]
 +
@@ -99,8 +99,9 @@ image::/../../Common/images/PWS_Marketplace.png[]
 . Let's begin by creating a MySQL instance.
 Below are instructions based on the CLI. If you prefer a graphical approach, then use Apps Manager to graphically create and bind a MySQL service to your uktowns app. After going to the Marketplace you can then selecting your desired service, create an instance of it, and bind it to your uktowns application.
 
-==CLI instructions
-let's _create_ a developer instance:
+== CLI instructions
++
+. let's _create_ a developer instance:
 +
 ----
 $ cf create-service p-mysql 100mb-dev mysqlService2
@@ -197,13 +198,13 @@ Note that you can do all of this from either the CLI or the Application Manager 
 .. The connection information is retrieved from the VCAP_SERVICES environment variable.
 +
 ----
-image::/../../Common/images/uktowns_vcap_services..JPG
+image::../../Common/images/uktowns_vcap_services..JPG
 ----
 +
 .. The Actual DB connection and Binding code is not PCF-specific.
 +
 ----
-image::/../../Common/images/uktowns_call_db..JPG
+image::../../Common/images/uktowns_call_db..JPG
 ----
 
 == Clean Up
