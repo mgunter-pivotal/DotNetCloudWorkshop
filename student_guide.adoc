@@ -48,8 +48,8 @@ _Overview of "SteelToe" -   MicroService framework for .NET on Cloud Foundry_
 ** link:session_01/lab_04/lab_04.adoc[Lab 4 - Monitoring Applications -Events & Logs]
 * Session 2 (link:session_02/Session_02.pdf[Slides])
 * Session 3 (link:session_03/session_03.pdf[Slides])
-** link:session_03/dotnet/lab_05/lab_05_dotnet.adoc[Lab 5,  Deploy an ASP.NET v5 Application -ColorService]
-** link:session_03/dotnet/lab_06/lab_06_dotnet.adoc[Lab 6, Consuming Data Services within a .NET 4.5 Application -BookService]
+** link:session_03/lab_05/lab_05_dotnet.adoc[Lab 5,  Deploy an ASP.NET v5 Application -ColorService]
+** link:session_03/lab_06/lab_06_dotnet.adoc[Lab 6, Consuming Data Services within a .NET 4.5 Application -BookService]
 * Session 4  (link:session_04/Session_04.pdf[Slides])
 ** link:session_04/lab_07_alternate/lab_07_alternate.adoc[Lab 7,  Strategies for Continuous Delivery - CI tools and Blue/Green Deployments]
 
