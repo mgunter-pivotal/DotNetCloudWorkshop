@@ -7,7 +7,7 @@ Pre-Requisites:
 
 Optional (but recommended):
 
- 1.  ASP.NET 5 - at least one of the labs will be done using ASP.NET 5.  A completed version of this lab will be available/usable for those that don't want to install ASP.NET 5, and just want to review/push the code to Cloud Foundry.
+ 1.  ASP.NET 5 - at least one of the labs will be done using ASP.NET 5.  A completed version of this lab will be available/usable for those that don't want to install ASP.NET 5, and just want to review/push the code to Cloud Foundry.(Download & install Instructions can be found here: http://docs.asp.net/en/latest/getting-started/installing-on-windows.html)
  2.  Visual Studio 2015 (All labs are "pre-published", but most students will want to follow along as we walk through some of the code)
 
 Smoketest:
