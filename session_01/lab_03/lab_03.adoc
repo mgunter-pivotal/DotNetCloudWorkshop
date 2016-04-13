@@ -181,4 +181,4 @@ image::../../Common/images/autoscale5.png[]
 +
 image::../../Common/images/autoscale6.png[]
 
-. There is a method in the cf-scale-dotnet application that will cause it to start chewing on CPU.  What you are going to do is access this URL and then switch back to the Apps Manager to view the Events tab, and see the autoscaler adding instances (and eventually retiring them when the load goes back to normal.  Access the load method now by opening `cf-scale-dotnet` in another browser window, and add `/load` to the URL, then hitting enter.  Don't wait for it to finish, just switch back to the Apps Manager and observe the behavior of `cf-scale-dotnet`
+. There is a button in the cf-scale-dotnet application that will cause it to start chewing on CPU.  What you are going to do is click the button and then switch back to the Apps Manager to view the Events tab, and see the autoscaler adding instances (and eventually retiring them when the load goes back to normal.  Access the add_load button now by opening `cf-scale-dotnet` in another browser window.  Don't wait for it to finish, just switch back to the Apps Manager and observe the behavior of `cf-scale-dotnet`
