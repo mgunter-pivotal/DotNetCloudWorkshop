@@ -2,9 +2,9 @@
 
 == Target
 
-. If you haven't already, download the latest release of the Cloud Foundry CLI from https://github.com/cloudfoundry/cli/releases for your operating system and install it.
-
 . Ask your instructor to provide you with a username and password to use when connecting to Pivotal Cloud Foundry.
+
+. If you don't already have the Cloud Foundry Commandline Interface, CLI for short, then download and install it from: https://apps.pcf7.cloud.fe.pivotal.io/tools  
 
 . Set the API target for the CLI.  Note that your endpoint may be different than the below.  Check with your instructor for the correct value to use throughout today's workshop.  In larger workshops, some may use a different Cloud Foundry instance than others.
 +
