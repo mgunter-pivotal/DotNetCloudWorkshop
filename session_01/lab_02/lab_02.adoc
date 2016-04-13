@@ -19,7 +19,7 @@ Let's log in to the _Apps Manager Console_:
 With Chrome or Firefox, goto this url:
 +
 ----
-https://apps.pcf7.cloud.fe.pivotal.io
+link::https://apps.pcf7.cloud.fe.pivotal.io
 ----
 . Reviewing the Application in Apps Manager
 +
