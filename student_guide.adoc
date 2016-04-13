@@ -30,23 +30,26 @@ $ git fetch --all
 
 === Agenda
 8:00 AM - 8:30 AM:: Finish Laptop Setups
-8:30 AM - 10:00 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry w/labs_
+8:30 AM - 10:00 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry & Push and Scale labs_
 10:00 AM - 10:15 AM:: Morning Break
 10:15 AM - 10:45 PM:: *Session 2:*  _Intro to .NET on Cloud Foundry Preso_
-10:45 PM - 12:30 PM:: *Session 3:* _PCF + .NET Labs_
-12:30 PM - 1:00 PM:: Lunch & *Session 4:* _Overview of "SteelToe" -   MicroService framework for .NET on Cloud Foundry_
+10:45 PM - 12:00 PM:: *Session 3:*  _Data Binding  + .NET5 Labs_
+
+_Overview of "SteelToe" -   MicroService framework for .NET on Cloud Foundry_
+
+12:00 PM - 1:00 PM:: Lunch & *Session 4:* _Blue-Green & Continuous Delivery Lab_
 
 == Course Materials
 
 * Session 1 (link:session_01/Session_01.pdf[Slides])
 ** link:session_01/lab_01/lab_01.adoc[Lab 1 - From Zero to Pushing Your First Application -uktowns]
 ** link:session_01/lab_02/lab_02.adoc[Lab 2 - Binding to Cloud Foundry Services -uktowns]
-** link:session_01/lab_03/lab_03.adoc[Lab 3 - Scaling Applications -EnvironmentViewer]
-** link:session_01/lab_04/lab_04.adoc[Lab 4 - Monitoring Applications -Metrix/splunk?]
+** link:session_01/lab_03/lab_03.adoc[Lab 3 - Scaling Applications -cf-scale-dotnet]
+** link:session_01/lab_04/lab_04.adoc[Lab 4 - Monitoring Applications -Events & Logs]
 * Session 2 (link:session_02/Session_02.pdf[Slides])
 * Session 3 (link:session_03/session_03.pdf[Slides])
-** link:session_03/dotnet/lab_05/lab_05_dotnet.adoc[Lab 5, .NET Track - Deploy an ASP.NET v5 Application -ColorService]
-** link:session_03/dotnet/lab_06/lab_06_dotnet.adoc[Lab 6, .NET Track - Consuming Data Services within a .NET 4.5 Application -BookService]
-* Session 4 - Optional/homework (link:session_04/Session_04.pdf[Slides])
-** link:session_04/lab_07_alternate/lab_07_alternate.adoc[Lab 7, .NET Track - Strategies for Continuous Delivery - CI tools and Blue/Green Deployments]
+** link:session_03/dotnet/lab_05/lab_05_dotnet.adoc[Lab 5,  Deploy an ASP.NET v5 Application -ColorService]
+** link:session_03/dotnet/lab_06/lab_06_dotnet.adoc[Lab 6, Consuming Data Services within a .NET 4.5 Application -BookService]
+* Session 4  (link:session_04/Session_04.pdf[Slides])
+** link:session_04/lab_07_alternate/lab_07_alternate.adoc[Lab 7,  Strategies for Continuous Delivery - CI tools and Blue/Green Deployments]
 
