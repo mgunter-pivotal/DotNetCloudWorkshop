@@ -29,8 +29,8 @@ $ git fetch --all
 ----
 
 === Agenda
-8:00 AM - 9:00 AM:: Finish Laptop Setups
-9:00 AM - 10:00 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry w/labs_
+8:00 AM - 8:30 AM:: Finish Laptop Setups
+8:30 AM - 10:00 AM:: *Session 1:* _Intro to Pivotal Cloud Foundry w/labs_
 10:00 AM - 10:15 AM:: Morning Break
 10:15 AM - 10:45 PM:: *Session 2:*  _Intro to .NET on Cloud Foundry Preso_
 10:45 PM - 12:30 PM:: *Session 3:* _PCF + .NET Labs_
