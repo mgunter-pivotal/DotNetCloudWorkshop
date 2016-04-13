@@ -188,23 +188,23 @@ As you can see from the information dialog, the application is now utilizing a M
 Note that you can do all of this from either the CLI or the Application Manager UI.
 
 == Review the code
-Open the uktowns up in Visual Studio as a website (DotNetCloudWorkshop\session_01\lab_01\uk-towns-dotnet)
-Note that 
-===
-.This is a simple application without any special libraries to support PCF.
+. Open the uktowns up in Visual Studio as a website (DotNetCloudWorkshop\session_01\lab_01\uk-towns-dotnet)
 +
-.The connection information is retrieved from the VCAP_SERVICES environment variable.
+. Note that :
++
+.. This is a simple application without any special libraries to support PCF.
++
+.. The connection information is retrieved from the VCAP_SERVICES environment variable.
 +
 ----
 image::/../../Common/images/uktowns_vcap_services..JPG
 ----
 +
-.The Actual DB connection and Binding code is not PCF-specific.
+.. The Actual DB connection and Binding code is not PCF-specific.
 +
 ----
 image::/../../Common/images/uktowns_call_db..JPG
 ----
-===
 
 == Clean Up
 
