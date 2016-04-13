@@ -21,7 +21,7 @@ $ cd $COURSE_HOME/session_01/lab_03/cf-scale-dotnet
 $ cf push
 ----
 
-. Once again, this application's manifest is configured to have a random route assigned to the application.  Remeber
+. Once again, this application's manifest is configured to have a random route assigned to the application.  Remember
 that an application's routes can be seen by using `cf apps` or by examining the application from the Apps Manager UI.
 So, when the CLI indicates that application is up and running, visit its route in the browser:
 +
@@ -129,9 +129,9 @@ last uploaded: Fri Feb 13 18:56:29 UTC 2015
 +
 As you can see, we're back down to only one instance running, and it is in fact the original index 0 that we started with.
 
-. Confirm that by again revisiting the route in the browser and checking the instance index and request counter:
+. Confirm that by again revisiting the route in the browser and checking the instance index:
 +
-image::../../Common/images/cf-scale-dotnet-unscaled.png[]
+image::../../Common/images/cf-scale-dotnet-initial.png[]
 
 == Scale from the Apps Manager
 
@@ -151,7 +151,7 @@ image::../../Common/images/appsmanager3.png[]
 
 == Set up Autoscaling
 
-.  There are many additional features available to users of Pivotal's Cloud Foundry when compared to Open Source Cloud Foundry.  These include things like Spring Cloud Services, Single Sign on for Applications, LDAP integration, Session State Caching with Gemfire, the Ops Manager, Ops Metrics, the Apps Manager - and many more.  One of these additional features includes the Application Autoscaling capability.  Let's set this up.
+.  There are many additional features available to users of Pivotal's Cloud Foundry -These include things like Spring Cloud Services, Single Sign on for Applications, LDAP integration, Session State Caching with Gemfire, the Ops Manager, Ops Metrics, the Apps Manager - and many more.  One of these additional features includes the Application Autoscaling capability.  Let's set this up.
 
 . Go back to the Apps Manager using the appropriate URL for your installation of Pivotal Cloud Foundry, e.g. https://apps.pcf7.cloud.fe.pivotal.io
 
