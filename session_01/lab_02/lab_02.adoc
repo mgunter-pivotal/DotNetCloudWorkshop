@@ -100,7 +100,7 @@ image::/../../Common/images/PWS_Marketplace.png[]
 Below are instructions based on the CLI. If you prefer a graphical approach, then use Apps Manager to graphically create and bind a MySQL service to your uktowns app. After going to the Marketplace you can then selecting your desired service, create an instance of it, and bind it to your uktowns application.
 
 == CLI instructions
-+
+
 . let's _create_ a developer instance:
 +
 ----
@@ -117,10 +117,10 @@ Binding service mysqlService2 to app uktowns02 in org student2-org / space devel
 OK
 TIP: Use 'cf restage uktowns02' to ensure your env variable changes take effect
 ----
-
++
 . Notice the admonition to `Use 'cf restage' to ensure your env variable changes take effect`.
 +
-. Then re-visit the URL to see the sample app Now showing a list of UK Towns
+. Then re-visit the URL to see the sample app -which now is showing a list of UK Towns
 +
 image::/../../Common/images/UkTownsData.JPG[]
 +
@@ -197,15 +197,11 @@ Note that you can do all of this from either the CLI or the Application Manager 
 +
 .. The connection information is retrieved from the VCAP_SERVICES environment variable.
 +
-----
-image::../../Common/images/uktowns_vcap_services..JPG
-----
+image::/../../Common/images/uktowns_vcap_services..JPG[]
 +
 .. The Actual DB connection and Binding code is not PCF-specific.
 +
-----
-image::../../Common/images/uktowns_call_db..JPG
-----
+image::/../../Common/images/uktowns_call_db..JPG[]
 
 == Clean Up
 
