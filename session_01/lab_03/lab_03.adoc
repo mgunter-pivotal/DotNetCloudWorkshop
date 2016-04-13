@@ -91,7 +91,7 @@ last uploaded: Fri Feb 13 18:56:29 UTC 2015
 
 . Revisit the application route in the browser.
 Refresh several times.
-You should observe the instance index and request counters changing as you do so:
+You should observe the instance index changing as you do so:
 +
 image::../../Common/images/cf-scale-dotnet-scaled.png[]
 +
