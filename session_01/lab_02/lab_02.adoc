@@ -190,7 +190,9 @@ Note that you can do all of this from either the CLI or the Application Manager 
 == Review the code
 Open the uktowns up in Visual Studio as a website (DotNetCloudWorkshop\session_01\lab_01\uk-towns-dotnet)
 Note that 
+===
 .This is a simple application without any special libraries to support PCF.
++
 .The connection information is retrieved from the VCAP_SERVICES environment variable.
 +
 ----
@@ -202,6 +204,7 @@ image::/../../Common/images/uktowns_vcap_services..JPG
 ----
 image::/../../Common/images/uktowns_call_db..JPG
 ----
+===
 
 == Clean Up
 
