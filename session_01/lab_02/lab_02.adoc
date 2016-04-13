@@ -16,11 +16,8 @@ The page indicates that we need to bind to a MySql database...which we will do s
 +
 Let's log in to the _Apps Manager Console_:
 +
-With Chrome or Firefox, goto this url:
+With Chrome or Firefox, goto this url: https://apps.pcf7.cloud.fe.pivotal.io
 +
-----
-https://apps.pcf7.cloud.fe.pivotal.io
-----
 . Reviewing the Application in Apps Manager
 +
 The _uktowns_ application is a basic example of how _.net apps_ can be "pushed to cloud foundry" and bound to services which are also managed by the platform.
