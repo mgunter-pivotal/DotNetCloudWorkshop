@@ -212,6 +212,19 @@ public class CurrentEnvironment
         Environment.Exit(-1);
     }
 
+    public static void AddAppLoad()
+    {
+        Console.WriteLine("adding load via.");
+        String strNew = "asd";
+        String strOriginal = "Wikipedia began as a complementary project for Nupedia, a free online English-language encyclopedia project whose articles were written by experts and reviewed under a formal process. Nupedia was founded on March 9, 2000, under the ownership of Bomis, a web portal company. Its main figures were the Bomis CEO Jimmy Wales and Larry Sanger, editor-in-chief for Nupedia and later Wikipedia. Nupedia was licensed initially under its own Nupedia Open Content License, switching to the GNU Free Documentation License before Wikipedia's founding at the urging of Richard Stallman.[18] Sanger and Wales founded Wikipedia.[19][20] While Wales is credited with defining the goal of making a publicly editable encyclopedia,[21][22] Sanger is credited with the strategy of using a wiki to reach that goal.[23] On January 10, 2001, Sanger proposed on the Nupedia mailing list to create a wiki as a feeder project for Nupedia.[24] External audio The Great Book of Knowledge, Part 1, Ideas with Paul Kennedy, CBC, January 15, 2014";
+        for (int i = 0; i < strOriginal.Length; i++)
+        {
+            strNew = strOriginal.ToString();
+            GC.Collect();
+        }
+        Console.WriteLine(strNew.ToString());
+    }
+
     public enum DatabaseEngine
     {
         None=0,

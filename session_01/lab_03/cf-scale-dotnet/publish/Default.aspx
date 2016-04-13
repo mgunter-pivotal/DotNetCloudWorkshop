@@ -104,6 +104,7 @@
                     <a href="javascript:window.location.reload();" class="medium button">Refresh</a>
                     <!-- This link should be changed to the application's kill action -->
                     <asp:Button ID="btnKill" runat="server" Text="Kill" CssClass="medium alert button" OnClick="btnKill_Click" />
+                    <asp:Button ID="addLoad" runat="server" Text="Add Load" CssClass="medium alert button" OnClick="btnLoad_Click" />
                 </div>
             </div>
             <script src="js/jquery.js"></script>

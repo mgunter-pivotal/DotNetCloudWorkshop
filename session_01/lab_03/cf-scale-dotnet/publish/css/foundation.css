@@ -1942,7 +1942,10 @@ button, .button {
   button.alert, .button.alert {
     background-color: #c60f13;
     border-color: #ae0d11;
-    color: white; }
+    color: white;
+    top: 0px;
+    left: 0px;
+}
     button.alert:hover, button.alert:focus, .button.alert:hover, .button.alert:focus {
       background-color: #ae0d11; }
     button.alert:hover, button.alert:focus, .button.alert:hover, .button.alert:focus {

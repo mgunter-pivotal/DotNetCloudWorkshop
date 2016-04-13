@@ -136,6 +136,11 @@ public partial class _Default : System.Web.UI.Page
     {
         CurrentEnvironment.KillApp();
     }
+    protected void btnLoad_Click(object sender, EventArgs e)
+    {
+        CurrentEnvironment.AddAppLoad();
+        Response.Redirect("/");
+    }
     protected void btnAddAttendee_Click(object sender, EventArgs e)
     {
         AttendeeDataSource.Insert();
