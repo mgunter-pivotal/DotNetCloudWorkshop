@@ -18,21 +18,21 @@ Let's log in to the _Apps Manager Console_:
 +
 With Chrome or Firefox, goto this url: https://apps.pcf7.cloud.fe.pivotal.io
 +
-. Reviewing the Application in Apps Manager
-+
-The _uktowns_ application is a basic example of how _.net apps_ can be "pushed to cloud foundry" and bound to services which are also managed by the platform.
-+
-The Apps Manager Provides a very user friendly view of the details of your application.
+Login to Apps manager with your student information. 
 +
 image::/../../Common/images/Login.JPG[]
-+
-Login to Apps manager with your student information. 
 +
 image::/../../Common/images/OrgSpace.JPG[]
 +
 Then Navigate to the correct org and space to view your list of applications (Hint: you may only have 1 application).
 +
 image::/../../Common/images/DevSpace.JPG[]
++
+. Reviewing the Application in Apps Manager
++
+The _uktowns_ application is a basic example of how _.net apps_ can be "pushed to cloud foundry" and bound to services which are also managed by the platform.
++
+The Apps Manager Provides a very user friendly view of the details of your application.
 +
 Click on the application to go to the Application Detail Page
 +
