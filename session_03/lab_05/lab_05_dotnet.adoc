@@ -5,7 +5,7 @@ In this lab we'll deploy an ASP.NET v5 application to Cloud Foundry, and run it 
 
 . Use the completed version of the application available here: `$COURSE_HOME/session_03/lab_05/complete`
 
-. Stop the application, and navigate a command line window to the root of the .NET project directory (the folder in which files like `project.json` and `appsettings.json` appear).  It is important you are in the correct folder when you push an application from CloudFoundry.
+. Navigate a command line window to the root of the .NET project directory (the folder in which files like `project.json` and `appsettings.json` appear).  It is important you are in the correct folder when you push an application from CloudFoundry.
 
 . In this directory, create a new `manifest.yml` file, and set up your deployment metadata using these values.
 +
