@@ -15,10 +15,7 @@ The page indicates that we need to bind to a MySql database...which we will do s
 . Managing your Application
 +
 Let's log in to the _Apps Manager Console_:
-+
-With Chrome or Firefox, goto this url: https://apps.pcf7.cloud.fe.pivotal.io
-+
-Login to Apps manager with your student information. 
+In your browser, goto this url: https://apps.pcf7.cloud.fe.pivotal.io
 +
 image::/../../Common/images/Login.JPG[]
 +
@@ -61,7 +58,7 @@ The _Environment Variables Tab_ displays the environment information. Environmen
 +
 Review Configuration and Status::
 +
-Each application can scale to multiple instances (we will do this in another lab) and can consume varying amounts of memory and disk. How much Memory and CPU is your appliction using? Can you reduce the memory footprint to 256MB?
+Each application can scale to multiple instances (we will do this in another lab) and can consume varying amounts of memory and disk. How much Memory and CPU is your application using? Can you reduce the memory footprint to 256MB?
 +
 . Working with Services
 +
@@ -101,21 +98,23 @@ Below are instructions based on the CLI. If you prefer a graphical approach, the
 
 == CLI instructions
 
+(Reminder: each student will need to use their own app-name following this template: uktownsXX, where XX is initials or student#)
++
 . let's _create_ a developer instance:
 +
 ----
-$ cf create-service p-mysql 100mb-dev mysqlService2
-Creating service instance mysqlService2 in org student2-org / space development as student2...
+$ cf create-service p-mysql 100mb-dev uktowns-mysql-db
+Creating service instance uktowns-mysql-db in org student2-org / space development as student2...
 OK
 ----
 +
 . Next we'll _bind_ the newly created instance to our existing `uktownsXX` application:
 +
 ----
-$ cf bind-service uktowns02 mysqlService2
-Binding service mysqlService2 to app uktowns02 in org student2-org / space development as student2...
+$ cf bind-service uktownsXX uktowns-mysql-db
+Binding service uktowns-mysql-db to app uktowns02 in org student2-org / space development as student2...
 OK
-TIP: Use 'cf restage uktowns02' to ensure your env variable changes take effect
+TIP: Use 'cf restage uktownsXX' to ensure your env variable changes take effect
 ----
 +
 . Notice the admonition to `Use 'cf restage' to ensure your env variable changes take effect`.
@@ -124,11 +123,11 @@ TIP: Use 'cf restage uktowns02' to ensure your env variable changes take effect
 +
 image::/../../Common/images/UkTownsData.JPG[]
 +
-Reminder: each student will need to use their own app-name following this template:
+(Reminder: each student will need to use their own app-name following this template: uktownsXX, where XX is initials or student#)
 +
 ```
-cf create-service p-mysql 100mb-dev mysqlService
-cf bind-service uktownsXX mysqlService
+cf create-service p-mysql 100mb-dev uktowns-mysql-db
+cf bind-service uktownsXX uktowns-mysql-db
 cf restage uktownsXX
 ```
 +
@@ -212,7 +211,7 @@ Since we're done using the uktownsXX application, let's clean up our application
 ----
 $ cf delete uktownsXX
 
-Really delete the app uktowns02?> y
+Really delete the app uktownsXX?> y
 Deleting app spring-music in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 ----
