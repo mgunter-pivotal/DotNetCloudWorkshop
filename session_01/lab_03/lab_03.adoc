@@ -21,7 +21,7 @@ $ cd $COURSE_HOME/session_01/lab_03/cf-scale-dotnet
 $ cf push
 ----
 
-. Once again, this application's manifest is configured to have a random route assigned to the application.  Remember
+. Unlike the uktowns app,  this application has a manifest that is configured to have a random route assigned to the application.  Remember
 that an application's routes can be seen by using `cf apps` or by examining the application from the Apps Manager UI.
 So, when the CLI indicates that application is up and running, visit its route in the browser:
 +
@@ -135,7 +135,7 @@ image::../../Common/images/cf-scale-dotnet-initial.png[]
 
 == Scale from the Apps Manager
 
-.  Let's try the same scaling from the Apps Manager.  The URL of the apps manager will vary based on the PCF environment you've been assigned, but is always at `api.[pcf-domain]`, e.g. https://apps.pcf7.cloud.fe.pivotal.io
+.  Let's try the same scaling from the Apps Manager.  The URL of the apps manager will vary based on the PCF environment you've been assigned, but is always at `apps.[pcf-domain]`, e.g. https://apps.pcf7.cloud.fe.pivotal.io
 
 . Click into the `development` space
 +
