@@ -178,7 +178,7 @@ Once the application is running again, revisit or refresh the browser tab where 
 
 image::/../../Common/images/UkTownsData.JPG[]
 
-As you can see from the information dialog, the application is now utilizing a MySQL database via the `mysqlService` service.
+As you can see from the data being displayed, the application is now utilizing a MySQL database via the `mysqlService` service.
 
 Note that you can do all of this from either the CLI or the Application Manager UI.
 
