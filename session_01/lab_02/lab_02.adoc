@@ -173,11 +173,7 @@ System-Provided:
 <1> `VCAP_SERVICES` is a special Cloud Foundry environment variable that contains a JSON document containing all of the information for any services bound to an application.
 <2> Notice here the unique URI for this instance of MySQL that `uktownsXX` has been bound to.
 ====
-+
-----
-$ cf restage uktownsXX
-----
-+
+
 Once the application is running again, revisit or refresh the browser tab where you have the _uktowns_ application loaded:
 
 image::/../../Common/images/UkTownsData.JPG[]
