@@ -99,39 +99,38 @@ Below are instructions based on the CLI. If you prefer a graphical approach, the
 == CLI instructions
 
 (Reminder: each student will need to use their own app-name following this template: uktownsXX, where XX is initials or student#)
-+
+
 . let's _create_ a developer instance:
-+
+
 ----
 $ cf create-service p-mysql 100mb-dev uktowns-mysql-db
 Creating service instance uktowns-mysql-db in org student2-org / space development as student2...
 OK
 ----
-+
+
 . Next we'll _bind_ the newly created instance to our existing `uktownsXX` application:
-+
+
 ----
 $ cf bind-service uktownsXX uktowns-mysql-db
 Binding service uktowns-mysql-db to app uktowns02 in org student2-org / space development as student2...
 OK
 TIP: Use 'cf restage uktownsXX' to ensure your env variable changes take effect
 ----
-+
+
 . Notice the admonition to `Use 'cf restage' to ensure your env variable changes take effect`.
-+
+
 . Then re-visit the URL to see the sample app -which now is showing a list of UK Towns
-+
+
 image::/../../Common/images/UkTownsData.JPG[]
-+
+
 (Reminder: each student will need to use their own app-name following this template: uktownsXX, where XX is initials or student#)
-+
+
 ```
 cf create-service p-mysql 100mb-dev uktowns-mysql-db
 cf bind-service uktownsXX uktowns-mysql-db
 cf restage uktownsXX
 ```
-+
-+
+
 . Let's take a look at the environment variables for our application to see what's been done. We can do this by typing:
 +
 ----
@@ -139,7 +138,7 @@ $ cf env uktownsXX
 ----
 +
 The subset of the output we're interested in is located near the very top, titled `System-Provided`:
-+
+
 ====
 ----
 System-Provided:
@@ -180,11 +179,11 @@ $ cf restage uktownsXX
 ----
 +
 Once the application is running again, revisit or refresh the browser tab where you have the _uktowns_ application loaded:
-+
+
 image::/../../Common/images/UkTownsData.JPG[]
-+
+
 As you can see from the information dialog, the application is now utilizing a MySQL database via the `mysqlService` service.
-+
+
 Note that you can do all of this from either the CLI or the Application Manager UI.
 
 == Review the code
@@ -197,7 +196,7 @@ Note that you can do all of this from either the CLI or the Application Manager 
 .. The connection information is retrieved from the VCAP_SERVICES environment variable.
 +
 image::/../../Common/images/uktowns_vcap_services..JPG[]
-+
+
 .. The Actual DB connection and Binding code is not PCF-specific.
 +
 image::/../../Common/images/uktowns_call_db..JPG[]
