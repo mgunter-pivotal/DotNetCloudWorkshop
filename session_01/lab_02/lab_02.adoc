@@ -211,12 +211,12 @@ Deleting app spring-music in org oreilly-class / space instructor as mstine@pivo
 OK
 ----
 
-. Delete the `mysqlService` service:
+. Delete the `uktowns-mysql-db` service:
 +
 ----
-$ cf delete-service mysqlService
+$ cf delete-service uktowns-mysql-db
 
-Really delete the service mysqlService?> y
-Deleting service mysqlService in org oreilly-class / space instructor as mstine@pivotal.io...
+Really delete the service uktowns-mysql-db?> y
+Deleting service uktowns-mysql-db in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 ----
