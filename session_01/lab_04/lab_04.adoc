@@ -273,15 +273,8 @@ time                          event                 actor               descript
 +
 ====
 ----
-2015-02-13T17:18:14.67-0600 [CELL/0]     OUT Creating container.
+2015-02-13T17:18:14.67-0600 [CELL/0]     OUT Creating container. <1>
 2015-02-13T17:18:24.72-0600 [App/0]      OUT Resolving dependencies.... <2>
-2015-02-13T17:18:26.62-0600 [App/0]      OUT   .   ____          _            __ _ _
-2015-02-13T17:18:26.62-0600 [App/0]      OUT  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-2015-02-13T17:18:26.62-0600 [App/0]      OUT ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
-2015-02-13T17:18:26.62-0600 [App/0]      OUT  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-2015-02-13T17:18:26.62-0600 [App/0]      OUT   '  |____| .__|_| |_|_| |_\__, | / / / /
-2015-02-13T17:18:26.62-0600 [App/0]      OUT  =========|_|==============|___/=/_/_/_/
-2015-02-13T17:18:26.62-0600 [App/0]      OUT  :: Spring Boot ::        (v1.1.9.RELEASE)
 ----
 <1> The CELL indicates that it is starting another instance of the application as a result of the Health Manager observing a difference between the desired and actual state (i.e. running instances = 1 vs. running instances = 0).
 <2> The new application instance starts logging events as it starts up.
