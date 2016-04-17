@@ -1,0 +1,13 @@
+== To Do
+
+1. Provide a Published directory to lab6/complete
+
+2. Make the Session_02.pdf preso better (include all the microsoft - Pivotal work). for example use my notes from "all things microsoft"
+
+3. Acquire the presentation on CI/bluegreen from Joel and place it in session_04.
+
+4. Figure out Lunch for Monday
+
+5. make dinner plans for sunday nite
+
+6. Can all of these be run inside Jabil's PCF environment? Ask Antone if we need to test that. (and convert lab 7)?

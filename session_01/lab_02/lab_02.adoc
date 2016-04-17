@@ -15,27 +15,23 @@ The page indicates that we need to bind to a MySql database...which we will do s
 . Managing your Application
 +
 Let's log in to the _Apps Manager Console_:
+In your browser, goto this url: https://apps.pcf7.cloud.fe.pivotal.io
 +
-With Chrome or Firefox, goto this url:
+image::/../../Common/images/Login.JPG[]
 +
-----
-https://apps.pcf7.cloud.fe.pivotal.io
-----
+Then Navigate to the default org...
++
+image::/../../Common/images/OrgSpace.JPG[]
++
+and space to view your list of applications (Hint: you may only have 1 application).
++
+image::/../../Common/images/DevSpace.JPG[]
++
 . Reviewing the Application in Apps Manager
 +
 The _uktowns_ application is a basic example of how _.net apps_ can be "pushed to cloud foundry" and bound to services which are also managed by the platform.
 +
 The Apps Manager Provides a very user friendly view of the details of your application.
-+
-image::/../../Common/images/Login.JPG[]
-+
-Login to Apps manager with your student information. 
-+
-image::/../../Common/images/OrgSpace.JPG[]
-+
-Then Navigate to the correct org and space to view your list of applications (Hint: you may only have 1 application).
-+
-image::/../../Common/images/DevSpace.JPG[]
 +
 Click on the application to go to the Application Detail Page
 +
@@ -62,7 +58,7 @@ The _Environment Variables Tab_ displays the environment information. Environmen
 +
 Review Configuration and Status::
 +
-Each application can scale to multiple instances (we will do this in another lab) and can consume varying amounts of memory and disk. How much Memory and CPU is your appliction using? Can you reduce the memory footprint to 256MB?
+Each application can scale to multiple instances (we will do this in another lab) and can consume varying amounts of memory and disk. How much Memory and CPU is your application using? Can you reduce the memory footprint to 256MB?
 +
 . Working with Services
 +
@@ -77,7 +73,7 @@ Bind/Unbind:: These operations create or delete unique credential sets for an ex
 . The Services Marketplace
 +
 There are two ways to discover what services are available on Pivotal Cloud Foundry.
-The first is available on any instance of Cloud Foundry: the CLI. Just type:
+A)One way is to use the CLI. Just type:
 +
 ----
 $ cf marketplace
@@ -85,8 +81,7 @@ $ cf marketplace
 +
 and you'll get a list of services, their available plans, and descriptions.
 +
-The second way is specific to Pivotal Cloud Foundry's Application Manager UI.
-If you haven't already, login to it by visiting https://apps.pcf7.cloud.fe.pivotal.io
+B)The second way is specific to Pivotal Cloud Foundry's Application Manager UI.
 +
 Click on the ``Marketplace'' link:
 +
@@ -99,37 +94,45 @@ image::/../../Common/images/PWS_Marketplace.png[]
 == Creating and Binding to a Service Instance
 
 . Let's begin by creating a MySQL instance.
-From the CLI, let's _create_ a developer instance:
+Below are instructions based on the CLI. If you prefer a graphical approach, then use Apps Manager to graphically create and bind a MySQL service to your uktowns app. After going to the Marketplace you can then selecting your desired service, create an instance of it, and bind it to your uktowns application.
+
+== CLI instructions
+
+(Reminder: each student will need to use their own app-name following this template: uktownsXX, where XX is initials or student#)
+
+. let's _create_ a developer instance:
 +
 ----
-$ cf create-service p-mysql 100mb-dev mysqlService2
-Creating service instance mysqlService2 in org student2-org / space development as student2...
+$ cf create-service p-mysql 100mb-dev uktowns-mysql-db
+Creating service instance uktowns-mysql-db in org student2-org / space development as student2...
 OK
 ----
 +
 . Next we'll _bind_ the newly created instance to our existing `uktownsXX` application:
 +
 ----
-$ cf bind-service uktowns02 mysqlService2
-Binding service mysqlService2 to app uktowns02 in org student2-org / space development as student2...
+$ cf bind-service uktownsXX uktowns-mysql-db
+Binding service uktowns-mysql-db to app uktowns02 in org student2-org / space development as student2...
 OK
-TIP: Use 'cf restage uktowns02' to ensure your env variable changes take effect
+TIP: Use 'cf restage uktownsXX' to ensure your env variable changes take effect
 ----
-
++
 . Notice the admonition to `Use 'cf restage' to ensure your env variable changes take effect`.
 +
-. Then re-visit the URL to see the sample app Now showing a list of UK Towns
+. Then re-visit the URL to see the sample app -which now is showing a list of UK Towns
 +
 image::/../../Common/images/UkTownsData.JPG[]
+_Reminder: each student will need to use their own app-name following this template: uktownsXX, where XX is initials or student number_.
 +
-Reminder: each student will need to use their own app-name following this template:
+. Create the service and bind to the app:
 +
 ```
-cf create-service p-mysql 100mb-dev mysqlService
-cf bind-service uktownsXX mysqlService
-cf restage uktownsXX
+cf create-service p-mysql 100mb-dev uktowns-mysql-db
+cf bind-service uktownsXX uktowns-mysql-db
 ```
 +
+. Now let's _restage_ the application, which cycles our application back through the staging/buildpack process before redeploying the application.footnote:[In this case, we could accomplish the same goal by only _restarting_ the application via `cf restart uktownsXX`.
+A _restage_ is generally recommended because Cloud Foundry buildpacks also have access to injected environment variables and can install or configure things differently based on their values.]
 +
 . Let's take a look at the environment variables for our application to see what's been done. We can do this by typing:
 +
@@ -138,12 +141,12 @@ $ cf env uktownsXX
 ----
 +
 The subset of the output we're interested in is located near the very top, titled `System-Provided`:
-+
+
 ====
 ----
 System-Provided:
 {
- "VCAP_SERVICES": {
+ "VCAP_SERVICES": {<1>
   "p-mysql": [
    {
     "credentials": {
@@ -152,7 +155,7 @@ System-Provided:
      "name": "cf_7de6897a_c70f_4504_931a_30c1c8a84f7a",
      "password": "WbkiQ62NIIAUFU0G",
      "port": 3306,
-     "uri": "mysql://dlQKvqIeVU12yCNY:WbkiQ62NIIAUFU0G@10.68.150.88:3306/cf_7de6897a_c70f_4504_931a_30c1c8a84f7a?reconnect=true",
+    <2> "uri": "mysql://dlQKvqIeVU12yCNY:WbkiQ62NIIAUFU0G@10.68.150.88:3306/cf_7de6897a_c70f_4504_931a_30c1c8a84f7a?reconnect=true",
      "username": "dlQKvqIeVU12yCNY"
     },
     "label": "p-mysql",
@@ -171,20 +174,28 @@ System-Provided:
 <2> Notice here the unique URI for this instance of MySQL that `uktownsXX` has been bound to.
 ====
 
-. Now let's _restage_ the application, which cycles our application back through the staging/buildpack process before redeploying the application.footnote:[In this case, we could accomplish the same goal by only _restarting_ the application via `cf restart uktownsXX`.
-A _restage_ is generally recommended because Cloud Foundry buildpacks also have access to injected environment variables and can install or configure things differently based on their values.]
-+
-----
-$ cf restage uktownsXX
-----
-+
 Once the application is running again, revisit or refresh the browser tab where you have the _uktowns_ application loaded:
-+
+
 image::/../../Common/images/UkTownsData.JPG[]
+
+As you can see from the data being displayed, the application is now utilizing a MySQL database via the `mysqlService` service.
+
+Note that you can do all of this from either the CLI or the Application Manager UI.
+
+== Review the code
+. Open the uktowns up in Visual Studio as a website (DotNetCloudWorkshop\session_01\lab_01\uk-towns-dotnet)
 +
-As you can see from the information dialog, the application is now utilizing a MySQL database via the `mysqlService` service.
+. Note that :
 +
-Note that you can do all of this from the Application Manager UI as well, by going to the Marketplace mentioned above, selecting your desired service, creating an instance of it, and binding it to your spring-music application.
+.. This is a simple application without any special libraries to support PCF.
++
+.. The connection information is retrieved from the VCAP_SERVICES environment variable.
++
+image::/../../Common/images/uktowns_vcap_services..JPG[]
+
+.. The Actual DB connection and Binding code is not PCF-specific.
++
+image::/../../Common/images/uktowns_call_db..JPG[]
 
 == Clean Up
 
@@ -195,17 +206,17 @@ Since we're done using the uktownsXX application, let's clean up our application
 ----
 $ cf delete uktownsXX
 
-Really delete the app uktowns02?> y
+Really delete the app uktownsXX?> y
 Deleting app spring-music in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 ----
 
-. Delete the `mysqlService` service:
+. Delete the `uktowns-mysql-db` service:
 +
 ----
-$ cf delete-service mysqlService
+$ cf delete-service uktowns-mysql-db
 
-Really delete the service mysqlService?> y
-Deleting service mysqlService in org oreilly-class / space instructor as mstine@pivotal.io...
+Really delete the service uktowns-mysql-db?> y
+Deleting service uktowns-mysql-db in org oreilly-class / space instructor as mstine@pivotal.io...
 OK
 ----

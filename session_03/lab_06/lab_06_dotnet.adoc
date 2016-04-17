@@ -3,7 +3,7 @@
 
 In this lab we'll take an existing .NET 4.5 application that uses a SQL Server Express LocalDB configuration and enable it to run in Cloud Foundry while accessing a managed MySQL instance.
 
-NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/dotnet/lab_06/complete/BookService`.
+NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/dotnet/lab_06/complete/BookService`. Also, the application is "published" to the /publish folder. If you want to push the completed application as-is, then cf-push from within the /publish folder.
 
 == Initializing the Application
 
@@ -11,7 +11,7 @@ NOTE: The completed code for this lab can be found at `$COURSE_HOME/session_03/d
 
 . Verify you can run the application locally by pressing the play button to launch the application.  This will open a browser, pointed to `localhost:[port]`.  From here, test the `api/Books` endpoint:
 +
-image::../../../Common/images/booksresponse1.png[]
+image::../../Common/images/booksresponse1.png[]
 
 . Now we'll use NuGet to configure the necessary MySQL packages for this application.  Open the Package Manager Console by going to `Tools -> NuGet Package Manager -> Package Manager Console`
 +
