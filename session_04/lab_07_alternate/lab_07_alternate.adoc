@@ -7,15 +7,15 @@ In this lab we will demonstrate a _very_ simple CI flow.  Normally, a full CI pi
 
 == Configure your build system
 
-. We will be using the same .NET code from the .NET portion of session 3.  Don't worry if you didn't do this lab, or if you don't know anything about .NET, the completed code is checked in to the https://github.com/jrolfe-pivotal/ColorService GitHub repository for use throughout the rest of this lab.
+. We will be using the same .NET code from the lab_05 part of session 3.  Don't worry if you didn't do this lab, or if you don't know anything about .NET, the completed code is checked in to the https://github.com/jrolfe-pivotal/ColorService GitHub repository for use throughout the rest of this lab -*which will require you to fork the above repo*.
 
 . If you don't already have a GitHub account, create one.  Once you are logged into GitHub, fork this repository to your account:  https://github.com/jrolfe-pivotal/ColorService.  (If you've never used GitHub before, grab an instructor, and they can show you how to perform a fork).  
 +
 Note: If you do not have a GitHub repository, and do not wish to create an account, you may use the root repository.  You will not, however, be able to commit changes, and will have to ask one of the instructors to make a commit for you when you're ready to test the CI flow.
 
-. We'll be using a PCF managed deployment of Jenkins, which means that user identity is integrated between the two, and you can log into Jenkins using the same credentials you've been using all day with Cloud Foundry.  Open https://jenkins-0.pcf14.cloud.fe.pivotal.io (replacing pcf14 with the environment you've been using today if necessary) in a browser and login.
+. We'll be using a PCF managed deployment of Jenkins, which means that user identity is integrated between the two, and you can log into Jenkins using the same credentials you've been using all day with Cloud Foundry.  Open https://jenkins-0.pcf7.cloud.fe.pivotal.io (if necessary, replacing pcf7 with the environment you've been using today) in a browser and login.
 
-. You'll see a folder with your username on it, e.g. _student40_.  Click on this folder, and then select _New Item_ from the left hand side menu bar.  
+. You'll see a folder with your username on it, e.g. _student2_.  Click on this folder, and then select _New Item_ from the left hand side menu bar.  
 
 . Create a new _Freestyle project_ called `color-service-build` and then click OK.
 
@@ -36,7 +36,7 @@ image::../../Common/images/jenkins3.png[]
 [source,bash]
 ----
 cf push colorservice-v$BUILD_NUMBER -n colorservice-jrolfe-v$BUILD_NUMBER
-cf map-route colorservice-v$BUILD_NUMBER pcf5.cloud.fe.pivotal.io -n colorservice-jrolfe
+cf map-route colorservice-v$BUILD_NUMBER pcf7.cloud.fe.pivotal.io -n colorservice-jrolfe
 ----
 +
 Now click `Save` to save your build configuration.  This will take you to the control screen for your color-service-build.  
